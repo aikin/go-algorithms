@@ -10,8 +10,21 @@ import (
 var _ = Describe("LinkedList", func() {
 	Context("When create empty linked list", func() {
 		It("should linked list length equal 0", func() {
-			l := LinkedList()
-			Expect(l.Length).To(Equal(0))
+			list := NewLinkedList()
+			Ω(list.Length).Should(BeZero())
+		})
+	})
+
+	Context("When operate linked list", func() {
+		It("should append node to linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			list.Append(1)
+
+			Ω(list.Length).Should(Equal(1))
 		})
 	})
 })
