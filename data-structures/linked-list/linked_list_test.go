@@ -1,14 +1,17 @@
-package list
+package list_test
 
 import (
-	"testing"
-	"fmt"
-)
+	. "github.com/aikin/go-algorithms/data-structures/linked-list"
 
-func TestLinkedList(t *testing.T) {
-	l := NewList()
-	fmt.Println(l)
-	if l.Length != 0 {
-		t.Fail()
-	}
-}
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	)
+
+var _ = Describe("LinkedList", func() {
+	Context("When create empty linked list", func() {
+		It("should linked list length equal 0", func() {
+			l := NewList()
+			Expect(l.Length).To(Equal(0))
+		})
+	})
+})
