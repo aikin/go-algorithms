@@ -12,11 +12,11 @@ type Node struct {
 	Next  *Node
 }
 
-func NewNode(value interface{}) *Node {
+func LinkedListNode(value interface{}) *Node {
 	return &Node{Value: value}
 }
 
-func NewList() *List {
+func LinkedList() *List {
 	l := new(List)
 	l.Length = 0
 	return l

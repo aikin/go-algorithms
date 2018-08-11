@@ -10,7 +10,7 @@ import (
 var _ = Describe("LinkedList", func() {
 	Context("When create empty linked list", func() {
 		It("should linked list length equal 0", func() {
-			l := NewList()
+			l := LinkedList()
 			Expect(l.Length).To(Equal(0))
 		})
 	})
