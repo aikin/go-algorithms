@@ -22,6 +22,10 @@ func NewLinkedList() *List {
 	return l
 }
 
+func (l *List) Len() int {
+	 return l.Length
+}
+
 func (l *List) Append(value interface{})  {
 	node := NewNode(value)
 
