@@ -28,13 +28,31 @@ var _ = Describe("LinkedList", func() {
 
 			Ω(list.Head).Should(Not(BeNil()))
 			Ω(list.Head.Next).Should(BeNil())
-			Ω(list.Head.Prev).Should(BeNil())
 			Ω(list.Head.Value).Should(Equal(1))
 
 			Ω(list.Tail).Should(Not(BeNil()))
 			Ω(list.Tail.Next).Should(BeNil())
-			Ω(list.Tail.Prev).Should(BeNil())
 			Ω(list.Tail.Value).Should(Equal(1))
+		})
+
+		It("should append multiple node to linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			list.Append(1)
+			list.Append(2)
+
+			Ω(list.Len()).Should(Equal(2))
+
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(Not(BeNil()))
+			Ω(list.Head.Value).Should(Equal(1))
+
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Value).Should(Equal(2))
 		})
 	})
 })

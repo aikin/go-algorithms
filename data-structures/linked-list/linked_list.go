@@ -8,7 +8,6 @@ type List struct {
 
 type Node struct {
 	Value interface{}
-	Prev  *Node
 	Next  *Node
 }
 
@@ -29,9 +28,12 @@ func (l *List) Len() int {
 func (l *List) Append(value interface{})  {
 	node := NewNode(value)
 
-	if l.Length == 0 {
+	if l.Len() == 0 {
 		l.Head = node
 		l.Tail = l.Head
+	} else {
+		l.Tail.Next = node
+		l.Tail = node
 	}
 	l.Length++
 }
