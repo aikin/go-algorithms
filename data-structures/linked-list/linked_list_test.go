@@ -60,4 +60,50 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Tail.Value).Should(Equal(3))
 		})
 	})
+
+	Context("When prepend node to linked list", func() {
+		It("should prepend node to linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			list.Prepend(2)
+
+			Ω(list.Len()).Should(Equal(1))
+
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(BeNil())
+			Ω(list.Head.Value).Should(Equal(2))
+
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Value).Should(Equal(2))
+		})
+
+		It("should prepend multiple node to linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			list.Prepend(2)
+			list.Append(1)
+			list.Prepend(3)
+
+			Ω(list.Len()).Should(Equal(3))
+
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(Not(BeNil()))
+			Ω(list.Head.Value).Should(Equal(3))
+
+			Ω(list.Head.Next.Value).Should(Equal(2))
+			Ω(list.Head.Next.Next).Should(Not(BeNil()))
+			Ω(list.Head.Next.Next.Value).Should(Equal(1))
+
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Value).Should(Equal(1))
+		})
+	})
 })

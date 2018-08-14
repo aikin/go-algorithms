@@ -37,3 +37,16 @@ func (l *List) Append(value interface{})  {
 	}
 	l.Length++
 }
+
+func (l *List) Prepend(value interface{})  {
+	node := NewNode(value)
+
+	if l.Len() == 0 {
+		l.Head = node
+		l.Tail = l.Head
+	} else {
+		node.Next = l.Head
+		l.Head = node
+	}
+	l.Length++
+}
