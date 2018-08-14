@@ -15,7 +15,7 @@ var _ = Describe("LinkedList", func() {
 		})
 	})
 
-	Context("When operate linked list", func() {
+	Context("When append node to linked list", func() {
 		It("should append node to linked list", func() {
 			list := NewLinkedList()
 
@@ -35,7 +35,7 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Tail.Value).Should(Equal(1))
 		})
 
-		It("should append multiple node to linked list", func() {
+		It("should append multiple nodes to linked list", func() {
 			list := NewLinkedList()
 
 			Ω(list.Head).Should(BeNil())
@@ -43,16 +43,21 @@ var _ = Describe("LinkedList", func() {
 
 			list.Append(1)
 			list.Append(2)
+			list.Append(3)
 
-			Ω(list.Len()).Should(Equal(2))
+			Ω(list.Len()).Should(Equal(3))
 
 			Ω(list.Head).Should(Not(BeNil()))
 			Ω(list.Head.Next).Should(Not(BeNil()))
 			Ω(list.Head.Value).Should(Equal(1))
 
+			Ω(list.Head.Next.Value).Should(Equal(2))
+			Ω(list.Head.Next.Next).Should(Not(BeNil()))
+			Ω(list.Head.Next.Next.Value).Should(Equal(3))
+
 			Ω(list.Tail).Should(Not(BeNil()))
 			Ω(list.Tail.Next).Should(BeNil())
-			Ω(list.Tail.Value).Should(Equal(2))
+			Ω(list.Tail.Value).Should(Equal(3))
 		})
 	})
 })
