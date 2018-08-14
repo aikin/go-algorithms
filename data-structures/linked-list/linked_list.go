@@ -50,3 +50,6 @@ func (l *List) Prepend(value interface{})  {
 	}
 	l.Length++
 }
+func (l *List) Remove(value interface{}) interface{} {
+	return nil
+}

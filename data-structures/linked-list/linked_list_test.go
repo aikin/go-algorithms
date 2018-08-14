@@ -106,4 +106,12 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Tail.Value).Should(Equal(1))
 		})
 	})
+
+	Context("When delete node from linked list", func() {
+		It("should delete node by value from linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Remove(5)).Should(BeNil())
+		})
+	})
 })
