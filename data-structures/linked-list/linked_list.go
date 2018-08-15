@@ -59,6 +59,30 @@ func (l *List) Remove(value interface{}) *Node {
 		return removedNode
 	}
 
+	for l.Head != nil && l.Head.Value == value {
+		removedNode = l.Head
+		l.Head = l.Head.Next
+		l.Length--
+	}
+
+	currentNode := l.Head
+	if currentNode != nil {
+		for currentNode.Next != nil {
+			if currentNode.Next.Value == value {
+				removedNode = currentNode.Next
+				currentNode.Next = currentNode.Next.Next
+				l.Length--
+			} else {
+				currentNode = currentNode.Next
+			}
+		}
+	}
+
+	if l.Tail.Value == value {
+		l.Tail = currentNode
+	}
+
+
 	return removedNode
 }
 

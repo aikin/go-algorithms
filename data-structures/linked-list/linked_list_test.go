@@ -125,5 +125,51 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Len()).Should(Equal(2))
 		})
 
+		It("should return single node by value from linked list", func() {
+			list := NewLinkedList()
+
+			list.Append(1)
+			list.Append(3)
+			list.Append(2)
+
+			removedNode := list.Remove(3)
+
+			Ω(removedNode.Value).Should(Equal(3))
+			Ω(list.Len()).Should(Equal(2))
+		})
+
+		It("should remove duplicate nodes by value from linked list", func() {
+			list := NewLinkedList()
+
+			Ω(list.Remove(5)).Should(BeNil())
+
+			list.Append(1)
+			list.Append(2)
+			list.Append(3)
+			list.Append(2)
+			list.Append(3)
+			list.Append(4)
+			list.Append(3)
+			list.Append(4)
+			list.Append(5)
+
+
+			Ω(list.Len()).Should(Equal(9))
+			Ω(list.Head.Value).Should(Equal(1))
+			Ω(list.Tail.Value).Should(Equal(5))
+
+			removedNode := list.Remove(3)
+
+			Ω(removedNode.Value).Should(Equal(3))
+			Ω(list.Len()).Should(Equal(6))
+			Ω(list.Head.Value).Should(Equal(1))
+			Ω(list.Tail.Value).Should(Equal(5))
+			Ω(list.Head.Next.Value).Should(Equal(2))
+			Ω(list.Head.Next.Next.Value).Should(Equal(2))
+			Ω(list.Head.Next.Next.Next.Value).Should(Equal(4))
+			Ω(list.Head.Next.Next.Next.Next.Value).Should(Equal(4))
+			Ω(list.Head.Next.Next.Next.Next.Next.Value).Should(Equal(5))
+			Ω(list.Head.Next.Next.Next.Next.Next.Next).Should(BeNil())
+		})
 	})
 })
