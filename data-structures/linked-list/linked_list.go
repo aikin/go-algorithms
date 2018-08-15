@@ -66,22 +66,23 @@ func (l *List) Remove(value interface{}) *Node {
 	}
 
 	currentNode := l.Head
-	if currentNode != nil {
-		for currentNode.Next != nil {
-			if currentNode.Next.Value == value {
-				removedNode = currentNode.Next
-				currentNode.Next = currentNode.Next.Next
-				l.Length--
-			} else {
-				currentNode = currentNode.Next
-			}
+	if currentNode == nil {
+		return removedNode
+	}
+
+	for currentNode.Next != nil {
+		if currentNode.Next.Value == value {
+			removedNode = currentNode.Next
+			currentNode.Next = currentNode.Next.Next
+			l.Length--
+		} else {
+			currentNode = currentNode.Next
 		}
 	}
 
 	if l.Tail.Value == value {
 		l.Tail = currentNode
 	}
-
 
 	return removedNode
 }
@@ -94,5 +95,3 @@ func (l *List) Print() {
 	}
 	fmt.Println()
 }
-
-
