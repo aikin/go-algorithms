@@ -107,11 +107,23 @@ var _ = Describe("LinkedList", func() {
 		})
 	})
 
-	Context("When delete node from linked list", func() {
-		It("should delete node by value from linked list", func() {
+	Context("When remove node from linked list", func() {
+		It("should return nil if linked list is empty", func() {
 			list := NewLinkedList()
 
 			Ω(list.Remove(5)).Should(BeNil())
 		})
+
+		It("should return nil if node not exist in linked list", func() {
+			list := NewLinkedList()
+
+			list.Append(1)
+			list.Append(3)
+
+			Ω(list.Len()).Should(Equal(2))
+			Ω(list.Remove(5)).Should(BeNil())
+			Ω(list.Len()).Should(Equal(2))
+		})
+
 	})
 })

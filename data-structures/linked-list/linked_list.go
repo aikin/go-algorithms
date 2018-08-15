@@ -1,5 +1,7 @@
 package list
 
+import "fmt"
+
 type List struct {
 	Length int
 	Head   *Node
@@ -22,10 +24,10 @@ func NewLinkedList() *List {
 }
 
 func (l *List) Len() int {
-	 return l.Length
+	return l.Length
 }
 
-func (l *List) Append(value interface{})  {
+func (l *List) Append(value interface{}) {
 	node := NewNode(value)
 
 	if l.Len() == 0 {
@@ -38,7 +40,7 @@ func (l *List) Append(value interface{})  {
 	l.Length++
 }
 
-func (l *List) Prepend(value interface{})  {
+func (l *List) Prepend(value interface{}) {
 	node := NewNode(value)
 
 	if l.Len() == 0 {
@@ -50,6 +52,23 @@ func (l *List) Prepend(value interface{})  {
 	}
 	l.Length++
 }
-func (l *List) Remove(value interface{}) interface{} {
-	return nil
+
+func (l *List) Remove(value interface{}) *Node {
+	removedNode := (*Node)(nil)
+	if l.Len() == 0 {
+		return removedNode
+	}
+
+	return removedNode
 }
+
+func (l *List) Print() {
+	node := l.Head
+	for node != nil {
+		fmt.Printf("%v->", node.Value)
+		node = node.Next
+	}
+	fmt.Println()
+}
+
+
