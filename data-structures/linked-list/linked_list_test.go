@@ -171,5 +171,49 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Head.Next.Next.Next.Next.Next.Value).Should(Equal(5))
 			Ω(list.Head.Next.Next.Next.Next.Next.Next).Should(BeNil())
 		})
+
+		It("should remove linked list head", func() {
+			list := NewLinkedList()
+
+			headNode := 1
+			tailNode := 2
+
+			list.Append(headNode)
+			list.Append(tailNode)
+
+
+			Ω(list.Len()).Should(Equal(2))
+			Ω(list.Head.Value).Should(Equal(headNode))
+			Ω(list.Tail.Value).Should(Equal(tailNode))
+
+			removedNode := list.Remove(headNode)
+
+			Ω(removedNode.Value).Should(Equal(headNode))
+			Ω(list.Len()).Should(Equal(1))
+			Ω(list.Head.Value).Should(Equal(tailNode))
+			Ω(list.Tail.Value).Should(Equal(tailNode))
+		})
+
+		It("should remove linked list tail", func() {
+			list := NewLinkedList()
+
+			headNode := 1
+			tailNode := 2
+
+			list.Append(headNode)
+			list.Append(tailNode)
+
+
+			Ω(list.Len()).Should(Equal(2))
+			Ω(list.Head.Value).Should(Equal(headNode))
+			Ω(list.Tail.Value).Should(Equal(tailNode))
+
+			removedNode := list.Remove(tailNode)
+
+			Ω(removedNode.Value).Should(Equal(tailNode))
+			Ω(list.Len()).Should(Equal(1))
+			Ω(list.Head.Value).Should(Equal(headNode))
+			Ω(list.Tail.Value).Should(Equal(headNode))
+		})
 	})
 })
