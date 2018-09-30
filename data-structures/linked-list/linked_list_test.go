@@ -59,6 +59,37 @@ var _ = Describe("LinkedList", func() {
 			Ω(list.Tail.Next).Should(BeNil())
 			Ω(list.Tail.Value).Should(Equal(3))
 		})
+
+		It("shoulde append store objects in the linked list", func() {
+			list := NewLinkedList()
+
+			type Person struct {
+				FirstName  string
+				LastName string
+			}
+
+		   tom := Person {"Tom", "Lu"}
+		   kin := Person {"Kin", "Lu"}
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			list.Append(tom)
+			list.Prepend(kin)
+
+			Ω(list.Len()).Should(Equal(2))
+
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(Not(BeNil()))
+			Ω(list.Head.Value).Should(Equal(kin))
+
+			Ω(list.Head.Next.Value).Should(Equal(tom))
+			Ω(list.Head.Next.Next).Should(BeNil())
+
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Value).Should(Equal(tom))
+		})
 	})
 
 	Context("When prepend node to linked list", func() {
