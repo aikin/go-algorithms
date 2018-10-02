@@ -53,6 +53,23 @@ func (l *List) Prepend(value interface{}) {
 	l.Length++
 }
 
+func (l *List) Find(value interface{}) *Node {
+	if l.Len() == 0 {
+		return (*Node)(nil)
+	}
+
+	currentNode := l.Head
+
+	for currentNode != nil {
+		if value != nil && currentNode.Value == value {
+			return currentNode;
+		}
+		currentNode = currentNode.Next
+	}
+	return (*Node)(nil)
+}
+
+
 func (l *List) Remove(value interface{}) *Node {
 	removedNode := (*Node)(nil)
 	if l.Len() == 0 {

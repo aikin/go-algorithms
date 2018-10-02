@@ -217,7 +217,17 @@ var _ = Describe("LinkedList", func() {
 		})
 	})
 
-	It("shoulde store objects in the linked list", func() {
+	Context("When find node from linked list", func() {
+
+		It("should find node by value", func() {
+			list := NewLinkedList()
+
+			Ω(list.Find(5)).Should(BeNil())
+			
+		})
+	})
+
+	It("should store objects in the linked list", func() {
 		list := NewLinkedList()
 
 		type Person struct {
