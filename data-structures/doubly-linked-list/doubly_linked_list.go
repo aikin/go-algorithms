@@ -30,9 +30,13 @@ func (l *DoublyLinkedList) Len() int {
 func (l *DoublyLinkedList) Append(value interface{}) {
 	node := NewDoublyLinkedListNode(value)
 
-	if (l.Len() == 0) {
+	if l.Len() == 0 {
 		l.Head = node
 		l.Tail = l.Head
+	} else {
+		l.Tail.Next = node
+		node.Previous = l.Tail
+		l.Tail = node
 	}
 
 	l.Length++

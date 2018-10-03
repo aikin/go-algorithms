@@ -36,5 +36,42 @@ var _ = Describe("DoublyLinkedList", func() {
 			Ω(list.Tail.Previous).Should(BeNil())
 			Ω(list.Tail.Value).Should(Equal(1))
 		})
+
+		It("should append multiple nodes to linked list", func() {
+			list := NewDoublyLinkedList()
+
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+
+			firstNodeValue := 1
+			secondNodeValue := 2
+			thirdNodeValue := 3
+
+			list.Append(firstNodeValue)
+			list.Append(secondNodeValue)
+			list.Append(thirdNodeValue)
+
+			Ω(list.Len()).Should(Equal(3))
+
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(Not(BeNil()))
+			Ω(list.Head.Previous).Should(BeNil())
+			Ω(list.Head.Value).Should(Equal(firstNodeValue))
+
+			Ω(list.Head.Next.Value).Should(Equal(secondNodeValue))
+			Ω(list.Head.Next.Next).Should(Not(BeNil()))
+			Ω(list.Head.Next.Next.Value).Should(Equal(thirdNodeValue))
+			Ω(list.Head.Next.Next.Next).Should(BeNil())
+
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Previous).Should(Not(BeNil()))
+			Ω(list.Tail.Value).Should(Equal(thirdNodeValue))
+
+			Ω(list.Tail.Previous.Value).Should(Equal(secondNodeValue))
+			Ω(list.Tail.Previous.Previous).Should(Not(BeNil()))	
+			Ω(list.Tail.Previous.Previous.Value).Should(Equal(firstNodeValue))
+			Ω(list.Tail.Previous.Previous.Previous).Should(BeNil())
+		})
 	})
 })
