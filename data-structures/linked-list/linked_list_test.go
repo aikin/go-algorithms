@@ -223,38 +223,70 @@ var _ = Describe("LinkedList", func() {
 			list := NewLinkedList()
 
 			Ω(list.Find(5)).Should(BeNil())
-			
+
+			list.Append(1)
+			list.Append(2)
+			list.Append(3)
+
+		
+			foundNode := list.Find(2)
+
+			Ω(foundNode).Should(Not(BeNil()))
+			Ω(foundNode.Value).Should(Equal(2))
 		})
 	})
 
-	It("should store objects in the linked list", func() {
-		list := NewLinkedList()
-
-		type Person struct {
-			FirstName  string
-			LastName string
-		}
-
-	   tom := Person {"Tom", "Lu"}
-	   kin := Person {"Kin", "Lu"}
-
-		Ω(list.Head).Should(BeNil())
-		Ω(list.Tail).Should(BeNil())
-
-		list.Append(tom)
-		list.Prepend(kin)
-
-		Ω(list.Len()).Should(Equal(2))
-
-		Ω(list.Head).Should(Not(BeNil()))
-		Ω(list.Head.Next).Should(Not(BeNil()))
-		Ω(list.Head.Value).Should(Equal(kin))
-
-		Ω(list.Head.Next.Value).Should(Equal(tom))
-		Ω(list.Head.Next.Next).Should(BeNil())
-
-		Ω(list.Tail).Should(Not(BeNil()))
-		Ω(list.Tail.Next).Should(BeNil())
-		Ω(list.Tail.Value).Should(Equal(tom))
+	Context("When operate node is obejct", func() {
+		It("should store objects in the linked list", func() {
+			list := NewLinkedList()
+	
+			type Person struct {
+				FirstName  string
+				LastName string
+			}
+	
+		   tom := Person {"Tom", "Lu"}
+		   kin := Person {"Kin", "Lu"}
+	
+			Ω(list.Head).Should(BeNil())
+			Ω(list.Tail).Should(BeNil())
+	
+			list.Append(tom)
+			list.Prepend(kin)
+	
+			Ω(list.Len()).Should(Equal(2))
+	
+			Ω(list.Head).Should(Not(BeNil()))
+			Ω(list.Head.Next).Should(Not(BeNil()))
+			Ω(list.Head.Value).Should(Equal(kin))
+	
+			Ω(list.Head.Next.Value).Should(Equal(tom))
+			Ω(list.Head.Next.Next).Should(BeNil())
+	
+			Ω(list.Tail).Should(Not(BeNil()))
+			Ω(list.Tail.Next).Should(BeNil())
+			Ω(list.Tail.Value).Should(Equal(tom))
+		})
 	})
+
+	Context("When get node from linked list", func() {
+
+		It("should can get node by index", func() {
+			list := NewLinkedList()
+
+			Ω(list.Get(5)).Should(BeNil())
+
+			list.Append(1)
+			list.Append(2)
+			list.Append(3)
+
+		
+			foundNode := list.Get(2)
+
+			Ω(foundNode).Should(Not(BeNil()))
+			Ω(foundNode.Value).Should(Equal(3))
+		})
+	})
+
+
 })

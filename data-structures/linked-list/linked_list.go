@@ -69,6 +69,19 @@ func (l *List) Find(value interface{}) *Node {
 	return (*Node)(nil)
 }
 
+func (l *List) Get(index int) *Node {
+	if index > l.Len() {
+		return nil
+	}
+
+	currentNode := l.Head
+	for i := 0; i < index; i++ {
+		currentNode = currentNode.Next
+	}
+
+	return currentNode
+}
+
 
 func (l *List) Remove(value interface{}) *Node {
 	removedNode := (*Node)(nil)
