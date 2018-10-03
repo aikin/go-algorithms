@@ -41,3 +41,18 @@ func (l *DoublyLinkedList) Append(value interface{}) {
 
 	l.Length++
 }
+
+func (l *DoublyLinkedList) Prepend(value interface{}) {
+	node := NewDoublyLinkedListNode(value)
+
+	if l.Len() == 0 {
+		l.Head = node
+		l.Tail = l.Head
+	} else {
+		l.Head.Previous = node
+		node.Next = l.Head
+		l.Head = node
+	}
+
+	l.Length++
+}
