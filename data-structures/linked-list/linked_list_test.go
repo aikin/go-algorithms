@@ -284,7 +284,7 @@ var _ = Describe("LinkedList", func() {
 			foundNode := list.Get(2)
 
 			Ω(foundNode).Should(Not(BeNil()))
-			Ω(foundNode.Value).Should(Equal(3))
+			Ω(foundNode.Value).Should(Equal(2))
 		})
 	})
 
