@@ -61,10 +61,8 @@ func (l *DoublyLinkedList) Prepend(value interface{}) {
 
 func (l *DoublyLinkedList) Remove(value interface{}) bool {
 	originalLength := l.Len()
-
-	currentNode := l.Head
 	
-	for currentNode != nil {
+	for currentNode := l.Head; currentNode != nil; currentNode = currentNode.Next {
 		if currentNode.Value == value {
 			removedNode := currentNode
 
@@ -86,7 +84,6 @@ func (l *DoublyLinkedList) Remove(value interface{}) bool {
 
 			l.Length--
 		} 
-		currentNode = currentNode.Next
 	}
 
 	return originalLength != l.Len()
