@@ -11,7 +11,9 @@ var _ = Describe("HashTable", func() {
 
 	Context("When create empty hash table", func() {
 		It("should create hash table of certain size", func() {
-			
+			 hashTable := NewHashTable(1000)
+			 
+			 Ω(hashTable.Capacity).Should(Equal(1000))
 		})
 	})
 
