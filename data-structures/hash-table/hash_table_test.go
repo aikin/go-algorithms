@@ -15,6 +15,15 @@ var _ = Describe("HashTable", func() {
 			 
 			 Ω(hashTable.Capacity).Should(Equal(1000))
 		})
+
+		It("should generate proper hash for specified keys", func() {
+			hashTable := NewHashTable(32)
+			 
+			Ω(hashTable.Capacity).Should(Equal(32))
+			Ω(hashTable.Hash("a")).Should(Equal(97))
+			Ω(hashTable.Hash("b")).Should(Equal(98))
+			Ω(hashTable.Hash("hash")).Should(Equal(3195150))
+		})
 	})
 
 })
