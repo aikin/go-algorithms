@@ -30,3 +30,7 @@ func(ht *HashTable) HashCode(key string) int {
 	}
 	return int(math.Abs(float64(hash)))
 }
+
+func(ht *HashTable) Position(key string) int {
+	return ht.HashCode(key) % ht.Capacity
+}
