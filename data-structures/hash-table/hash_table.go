@@ -22,7 +22,7 @@ func NewHashTable(cap int) *HashTable {
 	return &HashTable{Table: table, Size: 0, Capacity: cap}
 }
 
-func(ht *HashTable) Hash(key string) int {
+func(ht *HashTable) HashCode(key string) int {
 	hash := int32(0)
 	for i := 0; i < len(key); i++ {
 		hash = int32(hash<<5-hash) + int32(key[i])

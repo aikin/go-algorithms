@@ -20,9 +20,18 @@ var _ = Describe("HashTable", func() {
 			hashTable := NewHashTable(32)
 			 
 			Ω(hashTable.Capacity).Should(Equal(32))
-			Ω(hashTable.Hash("a")).Should(Equal(97))
-			Ω(hashTable.Hash("b")).Should(Equal(98))
-			Ω(hashTable.Hash("hash")).Should(Equal(3195150))
+			Ω(hashTable.HashCode("a")).Should(Equal(97))
+			Ω(hashTable.HashCode("b")).Should(Equal(98))
+			Ω(hashTable.HashCode("hash")).Should(Equal(3195150))
+		})
+
+		It("should generate proper hash for specified keys", func() {
+			hashTable := NewHashTable(32)
+			 
+			Ω(hashTable.Capacity).Should(Equal(32))
+			Ω(hashTable.HashCode("a")).Should(Equal(97))
+			Ω(hashTable.HashCode("b")).Should(Equal(98))
+			Ω(hashTable.HashCode("hash")).Should(Equal(3195150))
 		})
 	})
 
