@@ -27,11 +27,22 @@ var _ = Describe("HashTable", func() {
 
 		It("should generate proper index for specified keys", func() {
 			hashTable := NewHashTable(32)
-			 
+
 			Ω(hashTable.Position("a")).Should(Equal(1))
 			Ω(hashTable.Position("akin")).Should(Equal(15))
 			Ω(hashTable.Position("hash")).Should(Equal(14))
 			Ω(hashTable.Position("index")).Should(Equal(18))
+		})
+	})
+
+	Context("when put element to hashtabe", func() {
+		It("should can put element", func() {
+			hashTable := NewHashTable(32)
+			
+			hashTable.Put("a", "shy")
+			hashTable.Put("a", "shy-new")
+
+			Ω(hashTable.Size).Should(Equal(2))	
 		})
 	})
 

@@ -34,3 +34,16 @@ func(ht *HashTable) HashCode(key string) int {
 func(ht *HashTable) Position(key string) int {
 	return ht.HashCode(key) % ht.Capacity
 }
+
+func(ht *HashTable) Put(key string, value string) {
+	index := ht.Position(key)
+	if ht.Table[index] == nil {
+		ht.Table[index] = list.NewLinkedList()
+	}
+
+	item := &item{key: key, value: value}
+
+	ht.Table[index].Append(item)
+
+	ht.Size++ 
+}
