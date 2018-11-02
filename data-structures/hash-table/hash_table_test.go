@@ -35,8 +35,21 @@ var _ = Describe("HashTable", func() {
 		})
 	})
 
-	Context("when put element to hashtabe", func() {
-		It("should can put element", func() {
+	Context("when get item to hashtable", func() {
+		It("should can get item", func() {
+			hashTable := NewHashTable(32)
+			
+			hashTable.Put("a", "shy")
+			hashTable.Put("a", "shy-new")
+
+		    value := hashTable.Get("a")
+
+			Ω(value).Should(Equal("shy-new"))
+		})
+	})
+
+	Context("when put item to hashtabe", func() {
+		It("should can put item", func() {
 			hashTable := NewHashTable(32)
 			
 			hashTable.Put("a", "shy")

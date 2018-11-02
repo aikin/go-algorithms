@@ -47,3 +47,23 @@ func(ht *HashTable) Put(key string, value string) {
 
 	ht.Size++ 
 }
+
+
+func(ht *HashTable) Get(key string) (interface{}) {
+	index := ht.Position(key)
+
+	l := ht.Table[index]
+
+	var val *item
+	for node := l.Head; node != nil; node = node.Next {
+		if (node.Value.(*item).key == key) {
+			val = node.Value.(*item)
+		}
+	}
+
+	if val == nil {
+		return nil
+	}
+
+	return val.value
+}
