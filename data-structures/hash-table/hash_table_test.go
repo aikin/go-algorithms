@@ -40,6 +40,18 @@ var _ = Describe("HashTable", func() {
 			hashTable := NewHashTable(32)
 			
 			hashTable.Put("a", "shy")
+			hashTable.Put("b", "boy")
+
+		    value := hashTable.Get("a")
+
+			Ω(value).Should(Equal("shy"))
+		})
+
+		It("should can get correct item when hash collisions", func() {
+			hashTable := NewHashTable(32)
+			
+			hashTable.Put("a", "shy")
+			hashTable.Put("b", "boy")
 			hashTable.Put("a", "shy-new")
 
 		    value := hashTable.Get("a")
