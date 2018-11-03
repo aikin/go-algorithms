@@ -1,8 +1,10 @@
 package hash_table
 
 import (
-	"github.com/aikin/go-algorithms/data-structures/linked-list"
 	"math"
+	"errors"
+	"github.com/aikin/go-algorithms/data-structures/linked-list"
+	// "fmt"
 )
 
 type HashTable struct {
@@ -43,16 +45,25 @@ func(ht *HashTable) Put(key string, value string) {
 
 	item := &item{key: key, value: value}
 
-	ht.Table[index].Append(item)
+	foundItem, err := ht.find(index, key)
 
-	ht.Size++ 
+	if err != nil {
+		ht.Table[index].Append(item)
+		ht.Size++ 		
+	} else {
+		foundItem.value = value
+	}
+
 }
 
 
 func(ht *HashTable) Get(key string) (interface{}) {
 	index := ht.Position(key)
-
 	l := ht.Table[index]
+
+	if l == nil {
+		return nil
+	}
 
 	var val *item
 	for node := l.Head; node != nil; node = node.Next {
@@ -66,4 +77,21 @@ func(ht *HashTable) Get(key string) (interface{}) {
 	}
 
 	return val.value
+}
+
+func (ht *HashTable) find(i int, key string) (*item, error) {
+	l := ht.Table[i]
+	var found *item	
+
+	for node := l.Head; node != nil; node = node.Next {
+		 item := node.Value.(*item)
+		if item.key == key {
+			found = item
+		}
+	}
+	if found == nil {
+		return nil, errors.New("Not Found")
+	}
+
+	return found, nil
 }

@@ -64,10 +64,14 @@ var _ = Describe("HashTable", func() {
 		It("should can put item", func() {
 			hashTable := NewHashTable(32)
 			
-			hashTable.Put("a", "shy")
-			hashTable.Put("a", "shy-new")
+			hashTable.Put("kin", "shy")
+			hashTable.Put("boy", "shy-new")
+
+			hashTable.Get("a")
 
 			Ω(hashTable.Size).Should(Equal(2))	
+			Ω(hashTable.Get("a")).Should(BeNil())	
+			Ω(hashTable.Get("kin")).Should(Equal("shy"))
 		})
 	})
 
