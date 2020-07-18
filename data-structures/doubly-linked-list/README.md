@@ -92,7 +92,7 @@ end Reverse Traversal
     
 ## Complexities
 
-## Time Complexity
+### Time Complexity
 
 | Access    | Search    | Insertion | Deletion  |
 | :-------: | :-------: | :-------: | :-------: |
