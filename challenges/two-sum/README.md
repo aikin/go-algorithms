@@ -19,18 +19,22 @@ return [0, 1].
 
 #### ？？
 
-[x] target 和 数组 负数是否考虑: yes
-[x] 最小和最大值的限制 -> int.min, int.max
-[x] 没有找到答案处理 -> return empty array
-[x] 错误处理 -> errors. yes
-[x] 数组是排序的吗？ no
+- [x] target 和 数组 负数是否考虑: yes
+- [x] 最小和最大值的限制 -> int.min, int.max
+- [x] 没有找到答案处理 -> return empty array
+- [x] 错误处理 -> errors. yes
+- [x] 数组是排序的吗？ no
 
 ### Tasking
 
-[x] happy pass for input array
-[x] 遍历查找
-[x] 没有答案时，返回空数组
-[ ] 当输入不符合规则时提示错误
+- [x] happy pass for input array
+- [x] 遍历查找
+- [x] 没有答案时，返回空数组
+- [x] 当输入不符合规则时提示错误
+  - [x] 检查 nums 是否重复
+  - [x] 检查是否多过一个，解决方案
+  - [x] 检查最大值，最小值
+
 
 ## REF
 

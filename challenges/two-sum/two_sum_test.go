@@ -142,4 +142,33 @@ var _ = Describe("Two Sum", func() {
 			Ω(indices).Should(BeNil())
 		})
 	})
+
+	Context("two sum have more one result", func() {
+		When("numbres [2, 3, 5, 0], target: 5", func() {
+			It("should return indices: nil, error: should exactly one solution", func() {
+
+				var numbers = []int{2, 3, 5, 0}
+				var target = 5
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(MatchError("should exactly one solution"))
+				Ω(indices).Should(BeNil())
+			})
+		})
+
+		When("numbres [1, 3, 5, 0, 2], target: 5", func() {
+			It("should return indices: nil, error: should exactly one solution", func() {
+
+				var numbers = []int{1, 3, 5, 0, 2}
+				var target = 5
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(MatchError("should exactly one solution"))
+				Ω(indices).Should(BeNil())
+			})
+		})
+	})
+
 })

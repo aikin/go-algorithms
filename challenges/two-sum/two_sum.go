@@ -32,6 +32,9 @@ func TwoSum(nums []int, target int) ([]int, error) {
 			if (isNotFull && isTwoSumEqualTarget) {
 				indices = append(indices, i, j)
 			}
+			if (!isNotFull && isTwoSumEqualTarget) {
+				return nil, errors.New("should exactly one solution")
+			}
 		}
 	}
 
