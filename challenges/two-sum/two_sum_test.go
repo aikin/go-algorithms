@@ -171,7 +171,7 @@ var _ = Describe("Two Sum", func() {
 		})
 	})
 
-	Context("nums has greater than max or less than min value", func() {
+	Context("two sum has overflow size", func() {
 		When("numbres [9000000000000000000, 9223372036854775807, -9223372036854775808, 0], target: 9", func() {
 			It("should return indices: nil, error: should two sum in [min, max] rang", func() {
 
