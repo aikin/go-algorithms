@@ -12,13 +12,13 @@ var _ = Describe("HashTable", func() {
 	Context("When create empty hash table", func() {
 		It("should create hash table of certain size", func() {
 			 hashTable := NewHashTable(1000)
-			 
+
 			 Ω(hashTable.Capacity).Should(Equal(1000))
 		})
 
 		It("should generate proper hash for specified keys", func() {
 			hashTable := NewHashTable(32)
-			 
+
 			Ω(hashTable.Capacity).Should(Equal(32))
 			Ω(hashTable.HashCode("a")).Should(Equal(97))
 			Ω(hashTable.HashCode("b")).Should(Equal(98))
@@ -38,7 +38,7 @@ var _ = Describe("HashTable", func() {
 	Context("when get item to hashtable", func() {
 		It("should can get item", func() {
 			hashTable := NewHashTable(32)
-			
+
 			hashTable.Put("a", "shy")
 			hashTable.Put("b", "boy")
 
@@ -49,7 +49,7 @@ var _ = Describe("HashTable", func() {
 
 		It("should can get correct item when hash collisions", func() {
 			hashTable := NewHashTable(32)
-			
+
 			hashTable.Put("a", "shy")
 			hashTable.Put("b", "boy")
 			hashTable.Put("a", "shy-new")
@@ -63,14 +63,14 @@ var _ = Describe("HashTable", func() {
 	Context("when put item to hashtabe", func() {
 		It("should can put item", func() {
 			hashTable := NewHashTable(32)
-			
+
 			hashTable.Put("kin", "shy")
 			hashTable.Put("boy", "shy-new")
 
 			hashTable.Get("a")
 
-			Ω(hashTable.Size).Should(Equal(2))	
-			Ω(hashTable.Get("a")).Should(BeNil())	
+			Ω(hashTable.Size).Should(Equal(2))
+			Ω(hashTable.Get("a")).Should(BeNil())
 			Ω(hashTable.Get("kin")).Should(Equal("shy"))
 		})
 	})
