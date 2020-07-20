@@ -19,17 +19,17 @@ return [0, 1].
 
 #### ？？
 
-[ ] target 和 数组 负数是否考虑: no
-[ ] 最小和最大值的限制 -> 0, 100
-[ ] 没有找到答案处理 -> return empty array
-[ ] 错误处理 -> errors.
-[ ] 数组是排序的吗？
+[x] target 和 数组 负数是否考虑: yes
+[x] 最小和最大值的限制 -> int.min, int.max
+[x] 没有找到答案处理 -> return empty array
+[x] 错误处理 -> errors. yes
+[x] 数组是排序的吗？ no
 
 ### Tasking
 
 [x] happy pass for input array
-[ ] 遍历查找
-[ ] 没有答案时，返回空数组
+[x] 遍历查找
+[x] 没有答案时，返回空数组
 [ ] 当输入不符合规则时提示错误
 
 ## REF

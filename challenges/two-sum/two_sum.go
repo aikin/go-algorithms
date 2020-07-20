@@ -2,7 +2,7 @@ package two_sum
 
 import (
 	// "math"
-	// "errors"
+	"errors"
 	"fmt"
 )
 
@@ -12,24 +12,28 @@ Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
-func TwoSum(nums []int, target int) []int {
+func TwoSum(nums []int, target int) ([]int, error) {
 	fmt.Printf("starting")
 
+
 	var indices []int
-	var exceptedIndicesSize = 2
+	exceptedIndicesSize := 2
 
 	for i := 0; i < len(nums); i++ {
-		cur := nums[i]
-		for j := 0; j < len(nums); j++ {
-			if (cur + nums[j] == target) {
-				indices = append(indices, i, j)
-				break
+		for j := i + 1; j < len(nums); j++ {
+
+			hasDuplicated := nums[i] == nums[j]
+			if (hasDuplicated) {
+				return nil, errors.New("nums duplicates")
 			}
-		}
-		if (len(indices) == exceptedIndicesSize) {
-			break
+
+			isNotFull := len(indices) != exceptedIndicesSize
+			isTwoSumEqualTarget := nums[i] + nums[j] == target
+			if (isNotFull && isTwoSumEqualTarget) {
+				indices = append(indices, i, j)
+			}
 		}
 	}
 
-	return indices
+	return indices, nil
 }

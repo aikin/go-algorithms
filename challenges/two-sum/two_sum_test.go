@@ -16,8 +16,9 @@ var _ = Describe("Two Sum", func() {
 				var numbers = []int{2, 7, 11, 15}
 				var target = 9
 
-				indices := TwoSum(numbers, target)
+				indices, err := TwoSum(numbers, target)
 
+				Ω(err).Should(BeNil())
 				Ω(indices).Should(Equal([]int{0, 1}))
 			})
 		})
@@ -28,8 +29,9 @@ var _ = Describe("Two Sum", func() {
 				var numbers = []int{15, 7, 2, 11}
 				var target = 9
 
-				indices := TwoSum(numbers, target)
+				indices, err := TwoSum(numbers, target)
 
+				Ω(err).Should(BeNil())
 				Ω(indices).Should(Equal([]int{1, 2}))
 			})
 		})
@@ -40,11 +42,104 @@ var _ = Describe("Two Sum", func() {
 				var numbers = []int{10, 11, 2, 16}
 				var target = 12
 
-				indices := TwoSum(numbers, target)
+				indices, err := TwoSum(numbers, target)
 
+				Ω(err).Should(BeNil())
 				Ω(indices).Should(Equal([]int{0, 2}))
+			})
+		})
+
+		When("numbres [2, 4, 6, 0], target: 4", func() {
+			It("should return indices: [1, 3]", func() {
+
+				var numbers = []int{2, 4, 6, 0}
+				var target = 4
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(BeNil())
+				Ω(indices).Should(Equal([]int{1, 3}))
+			})
+		})
+
+		When("numbres [2, -7, 11, 15], target: 4", func() {
+			It("should return indices: [1, 2]", func() {
+
+				var numbers = []int{2, -7, 11, 15}
+				var target = 4
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(BeNil())
+				Ω(indices).Should(Equal([]int{1, 2}))
+			})
+		})
+
+		When("numbres [2, -7, 11, -15], target: -4", func() {
+			It("should return indices: [2, 3]", func() {
+
+				var numbers = []int{2, -7, 11, -15}
+				var target = -4
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(BeNil())
+				Ω(indices).Should(Equal([]int{2, 3}))
+			})
+		})
+
+		When("numbres [2, -7, 11, -15, 6, 5], target: 7", func() {
+			It("should return indices: [0, 5]", func() {
+
+				var numbers = []int{2, -7, 11, -15, 6, 5,}
+				var target = 7
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(BeNil())
+				Ω(indices).Should(Equal([]int{0, 5}))
+			})
+		})
+
+		When("numbres [-8, 16, -32, 36], target: -20", func() {
+			It("should return indices: [ ]", func() {
+
+				var numbers = []int{-8, 16, -32, 36}
+				var target = -20
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(BeNil())
+				Ω(len(indices)).Should(BeZero())
 			})
 		})
 	})
 
+	Context("two sum duplicates check logic", func() {
+		When("numbres [2, 2, 4, 15], target: 4", func() {
+			It("should return indices: null, error: nums duplicates!", func() {
+
+				var numbers = []int{2, 2, 4, 15}
+				var target = 4
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(MatchError("nums duplicates"))
+				Ω(indices).Should(BeNil())
+			})
+		})
+	})
+
+	When("numbres [2, 3, 15, 15], target: 5", func() {
+		It("should return indices: nil, error: nums duplicates", func() {
+
+			var numbers = []int{2, 3, 15, 15}
+			var target = 5
+
+			indices, err := TwoSum(numbers, target)
+
+			Ω(err).Should(MatchError("nums duplicates"))
+			Ω(indices).Should(BeNil())
+		})
+	})
 })
