@@ -4,6 +4,14 @@ import (
 	// "math"
 	"errors"
 	"fmt"
+	// "strconv"
+)
+
+const uintSize = 32 << (^uint(0) >> 32 & 1) // 32 or 64
+const (
+	maxInt  = 1<<(uintSize-1) - 1 // 1<<31 - 1 or 1<<63 - 1
+	minInt  = -maxInt - 1         // -1 << 31 or -1 << 63
+	maxUint = 1<<uintSize - 1     // 1<<32 - 1 or 1<<64 - 1
 )
 
 /*
@@ -13,11 +21,10 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
 func TwoSum(nums []int, target int) ([]int, error) {
-	fmt.Printf("starting")
-
-
 	var indices []int
 	exceptedIndicesSize := 2
+
+	// fmt.Printf("strconv max: %d, min: %d \n", maxInt, minInt)
 
 	for i := 0; i < len(nums); i++ {
 		for j := i + 1; j < len(nums); j++ {
@@ -27,8 +34,21 @@ func TwoSum(nums []int, target int) ([]int, error) {
 				return nil, errors.New("nums duplicates")
 			}
 
+			// fmt.Printf("strconv nums[i]: %d, nums[j]: %d, sum: %d \n", nums[i], nums[j], nums[i] + nums[j])
+
+
+			isOverflowSize := nums[i] + nums[j] <= nums[i] == (nums[j] > 0)
+			/*
+			// isOverflowSize := (nums[i] + nums[j] <= nums[i] && nums[j] > 0) ||
+			// (nums[i] + nums[j] >= nums[i] && nums[j] < 0)
+			*/
+			if (isOverflowSize)  {
+				return nil, errors.New("should two sum in [min, max] rang")
+			}
+
 			isNotFull := len(indices) != exceptedIndicesSize
 			isTwoSumEqualTarget := nums[i] + nums[j] == target
+
 			if (isNotFull && isTwoSumEqualTarget) {
 				indices = append(indices, i, j)
 			}

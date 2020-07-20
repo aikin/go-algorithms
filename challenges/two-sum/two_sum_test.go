@@ -171,4 +171,33 @@ var _ = Describe("Two Sum", func() {
 		})
 	})
 
+	Context("nums has greater than max or less than min value", func() {
+		When("numbres [9000000000000000000, 9223372036854775807, -9223372036854775808, 0], target: 9", func() {
+			It("should return indices: nil, error: should two sum in [min, max] rang", func() {
+
+				var numbers = []int{9, 9223372036854775807, -9223372036854775808, 0}
+				var target = 9
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(MatchError("should two sum in [min, max] rang"))
+				Ω(indices).Should(BeNil())
+
+			})
+		})
+
+		When("numbres [-9, 9223372036854775807, -9223372036854775808, 0], target: 9", func() {
+			It("should return indices: nil, error: should two sum in [min, max] rang", func() {
+
+				var numbers = []int{-9, 9223372036854775807, -9223372036854775808, 0}
+				var target = 9
+
+				indices, err := TwoSum(numbers, target)
+
+				Ω(err).Should(MatchError("should two sum in [min, max] rang"))
+				Ω(indices).Should(BeNil())
+
+			})
+		})
+	})
 })
