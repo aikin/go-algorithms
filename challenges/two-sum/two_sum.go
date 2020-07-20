@@ -19,6 +19,10 @@ Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
+
+复杂度分析：
+ - 时间复杂度：O(n^2)
+ - 空间复杂度：O(1)O(1)
 */
 func TwoSum(nums []int, target int) ([]int, error) {
 	var indices []int
