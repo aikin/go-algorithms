@@ -9,27 +9,43 @@ import (
 
 var _ = Describe("MaxProfit", func() {
 	Context("max profit logic", func() {
-		When("numbres [7, 1, 5, 3, 6, 4]", func() {
+		When("prices: [7, 1, 5, 3, 6, 4]", func() {
 			It("should return profit: 5", func() {
 
 				var prices = []int{7, 1, 5, 3, 6, 4}
 
-				//  profit := MaxProfit(prices)
-				 profit := MaxProfitWithOneLoop(prices)
+				//  profit, err := MaxProfit(prices)
+				 profit, err := MaxProfitWithOneLoop(prices)
 
 				Ω(profit).Should(Equal(5))
+				Ω(err).Should(BeNil())
 			})
 		})
 
-		When("numbres [7, 6, 4, 3, 1]", func() {
+		When("prices: [7, 6, 4, 3, 1]", func() {
 			It("should return profit: 0", func() {
 
 				var prices = []int{7, 6, 4, 3, 1}
 
-				//  profit := MaxProfit(prices)
-				 profit := MaxProfitWithOneLoop(prices)
+				//  profit, err := MaxProfit(prices)
+				 profit, err := MaxProfitWithOneLoop(prices)
+
 
 				Ω(profit).Should(Equal(0))
+				Ω(err).Should(BeNil())
+			})
+		})
+
+		When("prices: [7, 1, -5, -3, 6, 4]", func() {
+			It("should return profit: 5", func() {
+
+				var prices = []int{7, 1, -5, -3, 6, 4}
+
+				//  profit, err := MaxProfit(prices)
+				 profit, err := MaxProfitWithOneLoop(prices)
+
+				Ω(profit).Should(Equal(-1))
+				Ω(err).Should(MatchError("prices should >= 1"))
 			})
 		})
 	})
