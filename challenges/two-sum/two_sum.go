@@ -9,9 +9,9 @@ import (
 
 const uintSize = 32 << (^uint(0) >> 32 & 1) // 32 or 64
 const (
-	maxInt  = 1<<(uintSize-1) - 1 // 1<<31 - 1 or 1<<63 - 1
+	maxInt  = 1 << (uintSize - 1) - 1 // 1<<31 - 1 or 1<<63 - 1
 	minInt  = -maxInt - 1         // -1 << 31 or -1 << 63
-	maxUint = 1<<uintSize - 1     // 1<<32 - 1 or 1<<64 - 1
+	maxUint = 1 << uintSize - 1     // 1<<32 - 1 or 1<<64 - 1
 )
 
 /*
