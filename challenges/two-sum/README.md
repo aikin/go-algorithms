@@ -25,7 +25,7 @@ return [0, 1].
 - [x] 错误处理 -> errors. yes
 - [x] 数组是排序的吗？ no
 
-### Tasking
+### Tasks
 
 - [x] happy pass for input array
 - [x] 遍历查找
