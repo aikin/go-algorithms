@@ -57,9 +57,8 @@ func ContainsDuplicateWithHashMap(nums []int) (bool, error) {
 	numsMap := make(map[int]int)
 
 	for i, curNum := range nums {
-	 _, existed := numsMap[curNum]
-	 if (existed) {
-		 return true, nil
+	 if _, ok := numsMap[curNum]; ok {
+		return true, nil
 	 }
 	 numsMap[curNum] = i
  }
