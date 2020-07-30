@@ -55,14 +55,14 @@ func MaxProfitWithOneLoop(prices []int) (int, error) {
 	minPrice := maxInt
 	maxProfit := 0
 
-	for i := 0; i < len(prices) - 1; i++ {
-		if (prices[i] < exceptedMinPrice) {
+	for _, curPrice := range prices {
+		if (curPrice < exceptedMinPrice) {
 			return invalidPricesFlag, errors.New("prices should >= 1")
 		}
-		if (prices[i] < minPrice) {
-			minPrice = prices[i]
-		} else if (prices[i] - minPrice > maxProfit) {
-			maxProfit = prices[i] - minPrice
+		if (curPrice < minPrice) {
+			minPrice = curPrice
+		} else if (curPrice - minPrice > maxProfit) {
+			maxProfit = curPrice - minPrice
 		}
 	}
 
