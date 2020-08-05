@@ -32,3 +32,29 @@ func MaxSubArrayByBruteForceWay(nums []int) (int, error) {
 
 	return max, nil
 }
+
+/*
+Given nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+Because contiguous subarray [4,-1,2,1] has the largest sum = 6
+Then max = 6
+
+复杂度分析：
+ - 时间复杂度：O(n)
+ - 空间复杂度：O(1)
+*/
+func MaxSubArrayByGreedyWay(nums []int) (int, error) {
+	max := minInt
+	curSum := 0
+
+	for _, curNum := range nums {
+		curSum += curNum
+		if (curSum > max) {
+			max = curSum
+		}
+		if (curSum < 0) {
+			curSum = 0
+		}
+	}
+	return max, nil
+}
