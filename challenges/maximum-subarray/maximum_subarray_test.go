@@ -14,7 +14,8 @@ var _ = Describe("MaximumSubarray", func() {
 
 				nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
 
-				maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				// maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				maxSum, err := MaxSubArrayByGreedyWay(nums)
 
 				Ω(err).Should(BeNil())
 				Ω(maxSum).Should(Equal(6))
@@ -26,7 +27,8 @@ var _ = Describe("MaximumSubarray", func() {
 
 				nums := []int{1}
 
-				maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				// maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				maxSum, err := MaxSubArrayByGreedyWay(nums)
 
 				Ω(err).Should(BeNil())
 				Ω(maxSum).Should(Equal(1))
@@ -38,10 +40,24 @@ var _ = Describe("MaximumSubarray", func() {
 
 				nums := []int{-1}
 
-				maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				// maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				maxSum, err := MaxSubArrayByGreedyWay(nums)
 
 				Ω(err).Should(BeNil())
 				Ω(maxSum).Should(Equal(-1))
+			})
+		})
+
+		When("nums [-1, 1, 2, 0, -2, -1, 3]", func() {
+			It("should return maxSum: 3, err: nil", func() {
+
+				nums := []int{-1, 1, 2, 0, -2, -1, 3}
+
+				// maxSum, err := MaxSubArrayByBruteForceWay(nums)
+				maxSum, err := MaxSubArrayByGreedyWay(nums)
+
+				Ω(err).Should(BeNil())
+				Ω(maxSum).Should(Equal(3))
 			})
 		})
 	})
