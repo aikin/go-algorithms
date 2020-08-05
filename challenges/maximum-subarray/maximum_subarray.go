@@ -67,24 +67,18 @@ Then max = 6
 
 复杂度分析：
  - 时间复杂度：O(n)
- - 空间复杂度：O(n)
+ - 空间复杂度：O(1)
 */
 func MaxSubArrayByDynamicWay(nums []int) (int, error) {
-	sums := make([]int, len(nums))
-	sums[0] = nums[0]
+	max := minInt
 
 	for i := 1; i < len(nums); i++ {
-		if (sums[i - 1] < 0) {
-			sums[i] = nums[i]
+		if (nums[i - 1] < 0) {
 			continue
 		}
-		sums[i] = sums[i - 1] + nums[i]
-	}
-
-	max := minInt
-	for _, curSum := range sums {
-		if (curSum > max) {
-			max = curSum
+		nums[i] += nums[i - 1]
+		if (nums[i] > max) {
+			max = nums[i]
 		}
 	}
 
