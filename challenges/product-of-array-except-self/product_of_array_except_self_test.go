@@ -14,10 +14,11 @@ var _ = Describe("ProductOfArrayExceptSelf", func() {
 
 				nums := []int{1, 2, 3, 4}
 
-				result , err := ProductExceptSelf(nums)
+				// products, err := ProductExceptSelf(nums)
+				products, err := ProductExceptSelfByDecreaseSpace(nums)
 
 				Ω(err).Should(BeNil())
-				Ω(result).Should(Equal([]int {24, 12, 8, 6}))
+				Ω(products).Should(Equal([]int {24, 12, 8, 6}))
 			})
 		})
 
@@ -26,10 +27,11 @@ var _ = Describe("ProductOfArrayExceptSelf", func() {
 
 				nums := []int{2, 4, 8, 5, 6}
 
-				result , err := ProductExceptSelf(nums)
+				// products err := ProductExceptSelf(nums)
+				products, err := ProductExceptSelfByDecreaseSpace(nums)
 
 				Ω(err).Should(BeNil())
-				Ω(result).Should(Equal([]int {960, 480, 240, 384, 320}))
+				Ω(products).Should(Equal([]int {960, 480, 240, 384, 320}))
 			})
 		})
 
@@ -38,7 +40,8 @@ var _ = Describe("ProductOfArrayExceptSelf", func() {
 
 				nums := []int{2, 4, 0, 5, 6}
 
-				products, err := ProductExceptSelf(nums)
+				// products, err := ProductExceptSelf(nums)
+				products, err := ProductExceptSelfByDecreaseSpace(nums)
 
 				Ω(err).Should(MatchError("the num > 1 is required"))
 				Ω(products).Should(BeNil())
@@ -50,7 +53,8 @@ var _ = Describe("ProductOfArrayExceptSelf", func() {
 
 				nums := []int{2, -4, 0, 5, 6}
 
-				products, err := ProductExceptSelf(nums)
+				// products, err := ProductExceptSelf(nums)
+				products, err := ProductExceptSelfByDecreaseSpace(nums)
 
 				Ω(err).Should(MatchError("the num > 1 is required"))
 				Ω(products).Should(BeNil())
@@ -62,7 +66,8 @@ var _ = Describe("ProductOfArrayExceptSelf", func() {
 
 				nums := []int{99989989898899, 9989898898998, 99991232912199, 999123299, 3231232323}
 
-				products, err := ProductExceptSelf(nums)
+				// products, err := ProductExceptSelf(nums)
+				products, err := ProductExceptSelfByDecreaseSpace(nums)
 
 				Ω(err).Should(MatchError("the num should not oversize int"))
 				Ω(products).Should(BeNil())

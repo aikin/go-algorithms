@@ -29,10 +29,10 @@ func ProductExceptSelf(nums []int) ([]int, error) {
 		if isNumLesserThanOne(nums[i]) {
 			return nil, errors.New("the num > 1 is required")
 		}
-		if isProductOversize(left[i-1], nums[i-1]) {
+		if isProductOversize(left[i - 1], nums[i - 1]) {
 			return nil, errors.New("the num should not oversize int")
 		}
-		left[i] = left[i-1] * nums[i-1]
+		left[i] = left[i - 1] * nums[i - 1]
 	}
 
 	right[len(nums)-1] = 1
@@ -40,10 +40,10 @@ func ProductExceptSelf(nums []int) ([]int, error) {
 		if isNumLesserThanOne(nums[i]) {
 			return nil, errors.New("the num > 1 is required")
 		}
-		if isProductOversize(right[i+1], nums[i+1]) {
+		if isProductOversize(right[i + 1], nums[i + 1]) {
 			return nil, errors.New("the num should not oversize int")
 		}
-		right[i] = right[i+1] * nums[i+1]
+		right[i] = right[i + 1] * nums[i + 1]
 	}
 
 	for i := 0; i < len(nums); i++ {
@@ -51,6 +51,45 @@ func ProductExceptSelf(nums []int) ([]int, error) {
 			return nil, errors.New("the num should not oversize int")
 		}
 		products[i] = left[i] * right[i]
+	}
+
+	return products, nil
+}
+
+/*
+Given nums = [1, 2, 3, 4]
+
+Because 24=2*3*4, 12=1*3*4 8=1*2*4 6=1*2*3
+Then result: [24, 12, 8, 6]
+
+复杂度分析：
+ - 时间复杂度：O(n)
+ - 空间复杂度：O(1)
+*/
+func ProductExceptSelfByDecreaseSpace(nums []int) ([]int, error) {
+	products := make([]int, len(nums))
+
+	products[0] = 1
+	for i := 1; i < len(nums); i++ {
+		if isNumLesserThanOne(nums[i]) {
+			return nil, errors.New("the num > 1 is required")
+		}
+		if isProductOversize(products[i - 1], nums[i - 1]) {
+			return nil, errors.New("the num should not oversize int")
+		}
+		products[i] = products[i - 1] * nums[i - 1]
+	}
+
+	rightProduct := 1
+	for i := len(nums) - 1; i >= 0; i-- {
+		if isNumLesserThanOne(nums[i]) {
+			return nil, errors.New("the num > 1 is required")
+		}
+		if isProductOversize(products[i], nums[i]) {
+			return nil, errors.New("the num should not oversize int")
+		}
+		products[i] *= rightProduct
+		rightProduct *= nums[i]
 	}
 
 	return products, nil
