@@ -10,13 +10,24 @@ import (
 var _ = Describe("ThreeSum", func() {
 	Context("three sum general logic", func() {
 		When("numbres [-1, 0, 1, 2, -1, -4]", func() {
-			It("should return indices: [[-1, 0, 1], [-1, -1, 2]]", func() {
+			It("should return indices: [[-1, -1, 2], [-1, 0, 1]]", func() {
 
 				var numbers = []int{-1, 0, 1, 2, -1, -4}
 
 				ans := ThreeSum(numbers)
 
 				Ω(ans).Should(Equal([][]int{{-1, -1, 2}, {-1, 0, 1}}))
+			})
+		})
+
+		When("numbres [-5, 1, 2, 2, 3, 3, 5]", func() {
+			It("should return indices: [[-1, 0, 1], [-1, -1, 2]]", func() {
+
+				var numbers = []int{-5, 1, 2, 2, 3, 3, 5}
+
+				ans := ThreeSum(numbers)
+
+				Ω(ans).Should(Equal([][]int{{-5, 2, 3}}))
 			})
 		})
 	})
