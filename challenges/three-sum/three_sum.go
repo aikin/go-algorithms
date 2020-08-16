@@ -15,8 +15,8 @@ Then result:
 ]
 
 复杂度分析：
- - 时间复杂度：O(n^3)
- - 空间复杂度：O(1)
+ - 时间复杂度：O(n^2)
+ - 空间复杂度：O(logN)
 */
 func ThreeSum(nums []int) [][]int {
 
