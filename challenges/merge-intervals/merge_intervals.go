@@ -12,8 +12,11 @@ Then result: [[1, 6], [8, 10], [15, 18]]
 
 
 复杂度分析：
- - 时间复杂度：
- - 空间复杂度：
+ - 时间复杂度：O(nlogn)，更多的时间消耗，在排序算法
+ - 空间复杂度：O(logn)
+
+ 贪心算法：可以适用贪心的问题就是每一步局部最优，最后导致结果全局最优。
+ merged 就是每一步局部最优解的 存储容器。
 */
 func Merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
