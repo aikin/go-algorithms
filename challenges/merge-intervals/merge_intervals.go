@@ -25,18 +25,18 @@ func Merge(intervals [][]int) [][]int {
 
 	merged := [][]int{}
 
-	for i := 0; i < len(intervals); i++ {
+	for _, curInterval := range intervals {
 		if (len(merged) == 0) {
-			merged = append(merged, intervals[i])
+			merged = append(merged, curInterval)
 			continue
 		}
-		if (merged[len(merged) - 1][1] < intervals[i][0]) {
-			merged = append(merged, intervals[i])
+		last := merged[len(merged) - 1]
+		if (last[1] < curInterval[0]) {
+			merged = append(merged, curInterval)
 			continue
 		}
-		merged[len(merged) - 1][1] = max(merged[len(merged) - 1][1], intervals[i][1])
+		last[1] = max(last[1], curInterval[1])
 	}
-
 	return merged
 }
 
