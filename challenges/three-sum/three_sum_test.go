@@ -10,7 +10,7 @@ import (
 var _ = Describe("ThreeSum", func() {
 	Context("three sum general logic", func() {
 		When("numbres [-1, 0, 1, 2, -1, -4]", func() {
-			It("should return indices: [[-1, -1, 2], [-1, 0, 1]]", func() {
+			It("should return ans: [[-1, -1, 2], [-1, 0, 1]]", func() {
 
 				var numbers = []int{-1, 0, 1, 2, -1, -4}
 
@@ -21,7 +21,7 @@ var _ = Describe("ThreeSum", func() {
 		})
 
 		When("numbres [-5, 1, 2, 2, 3, 3, 5]", func() {
-			It("should return indices: [[-1, 0, 1], [-1, -1, 2]]", func() {
+			It("should return ans: [[-5, 2, 3]]", func() {
 
 				var numbers = []int{-5, 1, 2, 2, 3, 3, 5}
 
