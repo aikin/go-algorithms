@@ -24,29 +24,29 @@ func ThreeSum(nums []int) [][]int {
 	sort.Ints(nums);
 	l := len(nums)
 
-	for first := 0; first < l; first++ {
-		if (first > 0 && nums[first] == nums[first - 1]) {
+	for i := 0; i < l; i++ {
+		if (i > 0 && nums[i] == nums[i - 1]) {
 			continue
 		}
 
-		third := l - 1
-		target := -1 * nums[first]
+		right := l - 1
+		target := -1 * nums[i]
 
-		for second := first + 1; second < l; second++ {
-			if (second > first + 1 && nums[second] == nums[second -1]) {
+		for left := i + 1; left < l; left++ {
+			if (left > i + 1 && nums[left] == nums[left -1]) {
 				continue
 			}
 
-			if second < third && nums[second] + nums[third] > target {
-				third--
+			if left < right && nums[left] + nums[right] > target {
+				right--
 			}
 
-			if (second == third) {
+			if (left == right) {
 				break
 			}
 
-			if (nums[second] + nums[third] == target) {
-				ans = append(ans, []int{nums[first], nums[second], nums[third]})
+			if (nums[left] + nums[right] == target) {
+				ans = append(ans, []int{nums[i], nums[left], nums[right]})
 			}
 		}
 
