@@ -16,7 +16,7 @@ var _ = Describe("GroupAnagrams", func() {
 
 				groupedAnagrams := GroupAnagrams(anagrams)
 
-				Ω(groupedAnagrams).Should(Equal([][]string{{"ate", "eat", "tea"}, {"nat", "tan"}, {"bat"}}))
+				Ω(groupedAnagrams).Should(Equal([][]string{{"eat", "tea", "ate"}, {"tan", "nat"}, {"bat"}}))
 			})
 		})
 	})
