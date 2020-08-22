@@ -1,5 +1,10 @@
 package group_anagrams
 
+import (
+	"sort"
+	"strings"
+)
+
 /*
 Given anagrams = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
@@ -18,5 +23,31 @@ notes:
  - 空间复杂度：O(1)
 */
 func GroupAnagrams(strs []string) [][]string {
-	return [][]string{{"ate", "eat", "tea"}, {"nat", "tan"}, {"bat"}}
+
+	ans := make(map[string][]string)
+
+	for i := 0; i < len(strs); i++ {
+		key := keyOf(strs[i])
+		value, ok := ans[key]
+		if (ok) {
+			ans[key] = append(value, strs[i])
+			continue
+		}
+		ans[key] = []string {strs[i]}
+	}
+	return values(ans)
+}
+
+func keyOf(s string) string {
+	sChars := strings.Split(s, "")
+	sort.Strings(sChars)
+	return strings.Join(sChars, "")
+}
+
+func values(m map[string][]string) [][]string {
+	v := make([][]string, 0, len(m))
+	for  _, value := range m {
+	 v = append(v, value)
+	}
+	return v
 }
