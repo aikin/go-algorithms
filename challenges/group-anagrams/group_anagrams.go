@@ -99,6 +99,7 @@ func keyOf(s string) [26]int {
 }
 
 func values(m map[[26]int][]string) [][]string {
+	//TODO: map values should ordered
 	v := make([][]string, 0, len(m))
 	for  _, value := range m {
 	 v = append(v, value)
