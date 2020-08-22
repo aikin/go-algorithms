@@ -28,15 +28,16 @@ notes:
 func GroupAnagrams(strs []string) [][]string {
 	ans := make(map[string][]string)
 
-	for i := 0; i < len(strs); i++ {
-		key := keyOf(strs[i])
+	for _, curAnagram := range strs {
+		key := keyOf(curAnagram)
 		value, ok := ans[key]
 		if (ok) {
-			ans[key] = append(value, strs[i])
+			ans[key] = append(value, curAnagram)
 			continue
 		}
-		ans[key] = []string {strs[i]}
+		ans[key] = []string {curAnagram}
 	}
+
 	return values(ans)
 }
 
