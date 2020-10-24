@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/aikin/go-algorithms/algorithms/reverse-linked-list"
+	. "github.com/aikin/go-algorithms/challenges/list/reverse-linked-list"
 	. "github.com/aikin/go-algorithms/data-structures/linked-list"
 )
 
