@@ -8,5 +8,13 @@ import (
 )
 
 var _ = Describe("Queue", func() {
+	Context("When create queue", func() {
 
+		It("should be empty", func() {
+			queue := NewQueue()
+
+			Ω(queue).Should(Not(BeNil()))
+			Ω(queue.Len()).Should(BeZero())
+		})
+	})
 })
