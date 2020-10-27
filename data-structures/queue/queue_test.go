@@ -15,6 +15,8 @@ var _ = Describe("Queue", func() {
 
 			Ω(queue).Should(Not(BeNil()))
 			Ω(queue.Len()).Should(BeZero())
+			Ω(queue.IsEmpty()).Should(BeTrue())
 		})
+
 	})
 })

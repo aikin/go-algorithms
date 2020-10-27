@@ -19,4 +19,8 @@ func (q *Queue) Len() int {
 	return q.len;
 }
 
+func (q *Queue) IsEmpty() bool {
+	return q.len == 0;
+}
+
 
