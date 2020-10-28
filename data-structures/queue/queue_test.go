@@ -19,4 +19,39 @@ var _ = Describe("Queue", func() {
 		})
 
 	})
+
+	Context("When enqueue data to queue", func() {
+
+		It("should update queue len", func() {
+			queue := NewQueue()
+
+			queue.Enqueue(1)
+			queue.Enqueue(2)
+
+			Ω(queue.Len()).Should(Equal(2))
+			Ω(queue.IsEmpty()).Should(BeFalse())
+		})
+
+		It("should can enqueue objects", func() {
+			queue := NewQueue()
+
+			firstElement := make(map[string]int)
+			secondElement := make(map[string]int)
+
+			firstElement["key1"] = 1
+			firstElement["key2"] = 12
+
+			secondElement["key1"] = 1
+			secondElement["key2"] = 20
+
+
+			queue.Enqueue(firstElement)
+			queue.Enqueue(secondElement)
+
+			Ω(queue.Len()).Should(Equal(2))
+			Ω(queue.IsEmpty()).Should(BeFalse())
+		})
+
+	})
+
 })
