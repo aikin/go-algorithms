@@ -32,7 +32,7 @@ var _ = Describe("Queue", func() {
 			Ω(queue.IsEmpty()).Should(BeFalse())
 		})
 
-		It("should can enqueue objects", func() {
+		It("should be possible to enqueue objects", func() {
 			queue := NewQueue()
 
 			firstElement := make(map[string]int)
@@ -52,6 +52,23 @@ var _ = Describe("Queue", func() {
 			Ω(queue.IsEmpty()).Should(BeFalse())
 		})
 
+	})
+
+	Context("When dequeue data from queue", func() {
+		It("should update queue len", func() {
+			queue := NewQueue()
+
+			queue.Enqueue(1)
+			queue.Enqueue(2)
+
+			Ω(queue.Len()).Should(Equal(2))
+
+			Ω(queue.Dequeue()).Should(Equal(1))
+			Ω(queue.Len()).Should(Equal(1))
+
+			Ω(queue.Dequeue()).Should(Equal(2))
+			Ω(queue.Len()).Should(Equal(0))
+		})
 	})
 
 })
