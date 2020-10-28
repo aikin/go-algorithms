@@ -28,5 +28,13 @@ func (q *Queue) Enqueue(el interface{}) {
 	q.len++
 }
 
+func (q * Queue) Dequeue() (el interface{}) {
+	el, q.queue = q.queue[0], q.queue[1:]
+
+	q.len--
+
+	return el
+}
+
 
 
