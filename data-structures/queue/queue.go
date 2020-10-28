@@ -23,4 +23,10 @@ func (q *Queue) IsEmpty() bool {
 	return q.len == 0;
 }
 
+func (q *Queue) Enqueue(el interface{}) {
+	q.queue = append(q.queue, el)
+	q.len++
+}
+
+
 
