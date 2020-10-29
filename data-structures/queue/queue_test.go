@@ -68,6 +68,37 @@ var _ = Describe("Queue", func() {
 
 			Ω(queue.Dequeue()).Should(Equal(2))
 			Ω(queue.Len()).Should(Equal(0))
+			Ω(queue.IsEmpty()).Should(BeTrue())
+		})
+
+		It("should be possible to dequeue objects from queue", func() {
+			queue := NewQueue()
+
+			firstElement := make(map[string]int)
+			secondElement := make(map[string]int)
+			firstElement["key1"] = 1
+			firstElement["key2"] = 12
+			secondElement["key1"] = 1
+			secondElement["key2"] = 20
+
+
+			queue.Enqueue(firstElement)
+			queue.Enqueue(secondElement)
+
+			Ω(queue.Len()).Should(Equal(2))
+
+			f := queue.Dequeue()
+			first := f.(map[string]int)
+
+			Ω(first["key1"]).Should(Equal(1))
+
+			Ω(queue.Len()).Should(Equal(1))
+
+			s := queue.Dequeue()
+		  second := s.(map[string]int)
+
+			Ω(second["key2"]).Should(Equal(20))
+			Ω(queue.IsEmpty()).Should(BeTrue())
 		})
 	})
 
