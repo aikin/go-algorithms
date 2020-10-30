@@ -29,6 +29,9 @@ func (q *Queue) Enqueue(el interface{}) {
 }
 
 func (q * Queue) Dequeue() (el interface{}) {
+	if (q.len == 0) {
+		return nil
+	}
 	el, q.queue = q.queue[0], q.queue[1:]
 
 	q.len--
