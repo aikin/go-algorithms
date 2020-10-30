@@ -96,10 +96,12 @@ var _ = Describe("Queue", func() {
 
 			s := queue.Dequeue()
 		  second := s.(map[string]int)
-
 			Ω(second["key2"]).Should(Equal(20))
+
+			Ω(queue.Dequeue()).Should(BeNil())
 			Ω(queue.IsEmpty()).Should(BeTrue())
 		})
 	})
+
 
 })
