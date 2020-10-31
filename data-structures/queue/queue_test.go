@@ -103,5 +103,15 @@ var _ = Describe("Queue", func() {
 		})
 	})
 
+	Context("When peek data from queue", func() {
+		It("should return the front end of data", func() {
+			queue := NewQueue()
 
+			queue.Enqueue(1)
+			queue.Enqueue(2)
+
+			Ω(queue.Peek()).Should(Equal(1))
+			Ω(queue.Peek()).Should(Equal(1))
+		})
+	})
 })
