@@ -28,7 +28,7 @@ func (q *Queue) Enqueue(el interface{}) {
 	q.len++
 }
 
-func (q * Queue) Dequeue() (el interface{}) {
+func (q *Queue) Dequeue() (el interface{}) {
 	if (q.len == 0) {
 		return nil
 	}
@@ -37,6 +37,10 @@ func (q * Queue) Dequeue() (el interface{}) {
 	q.len--
 
 	return el
+}
+
+func (q *Queue) Peek() interface{} {
+	return q.queue[0];
 }
 
 
