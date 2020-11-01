@@ -104,7 +104,7 @@ var _ = Describe("Queue", func() {
 	})
 
 	Context("When peek data from queue", func() {
-		It("should return the front end of data", func() {
+		It("should return top elememt of queue", func() {
 			queue := NewQueue()
 
 			queue.Enqueue(1)
