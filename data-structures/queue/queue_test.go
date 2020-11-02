@@ -112,6 +112,13 @@ var _ = Describe("Queue", func() {
 
 			Ω(queue.Peek()).Should(Equal(1))
 			Ω(queue.Peek()).Should(Equal(1))
+
+		})
+
+		It("should return nil", func() {
+			queue := NewQueue()
+
+			Ω(queue.Peek()).Should(BeNil())
 		})
 	})
 })

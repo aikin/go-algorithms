@@ -40,6 +40,9 @@ func (q *Queue) Dequeue() (el interface{}) {
 }
 
 func (q *Queue) Peek() interface{} {
+	if (q.len == 0) {
+		return nil
+	}
 	return q.queue[0];
 }
 
