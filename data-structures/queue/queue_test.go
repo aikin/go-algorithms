@@ -104,7 +104,7 @@ var _ = Describe("Queue", func() {
 	})
 
 	Context("When peek data from queue", func() {
-		It("should return top elememt of queue", func() {
+		It("should return top elememt of queue with not empty queue", func() {
 			queue := NewQueue()
 
 			queue.Enqueue(1)
@@ -112,10 +112,11 @@ var _ = Describe("Queue", func() {
 
 			Ω(queue.Peek()).Should(Equal(1))
 			Ω(queue.Peek()).Should(Equal(1))
+			Ω(queue.IsEmpty()).Should(BeFalse())
 
 		})
 
-		It("should return nil", func() {
+		It("should return nil with empty queue", func() {
 			queue := NewQueue()
 
 			Ω(queue.Peek()).Should(BeNil())
