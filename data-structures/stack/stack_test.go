@@ -13,6 +13,7 @@ Context("When create stack ", func() {
 	It("should be empty", func() {
 			stack := NewStack()
 
+			Ω(stack).Should(Not(BeNil()))
 			Ω(stack.Len()).Should(Equal(0))
 			Ω(stack.IsEmpty()).Should(BeTrue())
 	})
