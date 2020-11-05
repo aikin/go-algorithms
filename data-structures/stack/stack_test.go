@@ -9,4 +9,14 @@ import (
 
 var _ = Describe("Stack", func() {
 
+Context("When create stack ", func() {
+	It("should be empty", func() {
+			stack := NewStack()
+
+			Ω(stack.Len()).Should(Equal(0))
+			Ω(stack.IsEmpty()).Should(BeTrue())
+	})
+})
+
+
 })
