@@ -21,3 +21,13 @@ func (stack *Stack) Len() int {
 func (stack *Stack) IsEmpty() bool {
 	return stack.len == 0
 }
+
+func (stack *Stack) Push(element interface{}) {
+
+	prepend := make([]interface{}, 1)
+	prepend[0] = element
+
+	stack.stack = append(prepend, stack.stack...)
+
+	stack.len++
+}
