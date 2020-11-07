@@ -31,3 +31,10 @@ func (stack *Stack) Push(element interface{}) {
 
 	stack.len++
 }
+
+func (stack *Stack) Pop() (element interface{}) {
+
+	element, stack.stack = stack.stack[0], stack.stack[1:]
+	stack.len--
+	return element
+}
