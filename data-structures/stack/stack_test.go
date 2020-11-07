@@ -48,5 +48,22 @@ Context("When stack data to stack", func () {
 	})
 })
 
+Context("When pop data from stack", func () {
+	It("should update len", func() {
+		stack := NewStack()
+		stack.Push(1)
+		stack.Push(2)
+
+
+
+		Ω(stack.Pop()).Should(Equal(2))
+		Ω(stack.Len()).Should(Equal(1))
+
+		Ω(stack.Pop()).Should(Equal(1))
+		Ω(stack.Len()).Should(Equal(0))
+		Ω(stack.IsEmpty()).Should(BeTrue())
+	})
+})
+
 
 })
