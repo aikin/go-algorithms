@@ -63,6 +63,35 @@ Context("When pop data from stack", func () {
 		Ω(stack.Len()).Should(Equal(0))
 		Ω(stack.IsEmpty()).Should(BeTrue())
 	})
+
+	It("should be possible to pop objects", func() {
+		stack := NewStack()
+		firstElement := make(map[string]int)
+		secondElement := make(map[string]int)
+
+		firstElement["key1"] = 1
+		firstElement["key2"] = 12
+
+		secondElement["key1"] = 1
+		secondElement["key2"] = 20
+
+		stack.Push(firstElement)
+		stack.Push(secondElement)
+
+		Ω(stack.Len()).Should(Equal(2))
+
+		f := stack.Pop()
+		first := f.(map[string]int)
+
+		Ω(first["key2"]).Should(Equal(20))
+		Ω(stack.Len()).Should(Equal(1))
+
+		s := stack.Pop()
+		second := s.(map[string]int)
+
+		Ω(second["key2"]).Should(Equal(12))
+		Ω(stack.IsEmpty()).Should(BeTrue())
+	})
 })
 
 
