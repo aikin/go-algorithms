@@ -33,8 +33,11 @@ func (stack *Stack) Push(element interface{}) {
 }
 
 func (stack *Stack) Pop() (element interface{}) {
-
 	element, stack.stack = stack.stack[0], stack.stack[1:]
 	stack.len--
 	return element
+}
+
+func (stack *Stack) Peek() interface{} {
+	return stack.stack[0]
 }

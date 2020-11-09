@@ -94,5 +94,18 @@ Context("When pop data from stack", func () {
 	})
 })
 
+Context("When peek data from stack", func() {
+	It("should peek top element from stack", func() {
+		stack := NewStack()
+		stack.Push(3)
+		stack.Push(2)
+
+		element := stack.Peek()
+
+		Ω(stack.Len()).Should(Equal(2))
+		Ω(element).Should(Equal(2))
+	})
+})
+
 
 })
