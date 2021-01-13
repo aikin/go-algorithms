@@ -9,7 +9,7 @@ THEN: 1
  - 时间复杂度：O(n)
  - 空间复杂度：O(1)
 */
-func FindMinByForceWay(nums []int) int {
+func FindMinByBruteForceWay(nums []int) int {
 	if (len(nums) == 1) {
 		return nums[0]
 	}
