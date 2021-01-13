@@ -14,7 +14,8 @@ var _ = Describe("FindMinimumInRotatedSortedArray", func() {
 
 				var nums = []int{3, 4, 5, 1, 2}
 
-				min := FindMinByForceWay(nums)
+				// min := FindMinByForceWay(nums)
+				min := FindMinByBinarySearch(nums)
 
 				Ω(min).Should(Equal(1))
 			})
@@ -25,7 +26,8 @@ var _ = Describe("FindMinimumInRotatedSortedArray", func() {
 
 				var nums = []int{4, 5, 6, 7, 0, 1, 2}
 
-				min := FindMinByForceWay(nums)
+				// min := FindMinByForceWay(nums)
+				min := FindMinByBinarySearch(nums)
 
 				Ω(min).Should(Equal(0))
 			})
@@ -36,9 +38,22 @@ var _ = Describe("FindMinimumInRotatedSortedArray", func() {
 
 				var nums = []int{11, 13, 15, 17}
 
-				min := FindMinByForceWay(nums)
+				// min := FindMinByForceWay(nums)
+				min := FindMinByBinarySearch(nums)
 
 				Ω(min).Should(Equal(11))
+			})
+		})
+
+		When("numbres [3]", func() {
+			It("should return min num: 1", func() {
+
+				var nums = []int{3}
+
+				// min := FindMinByForceWay(nums)
+				min := FindMinByBinarySearch(nums)
+
+				Ω(min).Should(Equal(3))
 			})
 		})
 	})
