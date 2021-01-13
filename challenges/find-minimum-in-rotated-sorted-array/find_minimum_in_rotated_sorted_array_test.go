@@ -14,9 +14,31 @@ var _ = Describe("FindMinimumInRotatedSortedArray", func() {
 
 				var nums = []int{3, 4, 5, 1, 2}
 
-				min := FindMin(nums)
+				min := FindMinByForceWay(nums)
 
 				Ω(min).Should(Equal(1))
+			})
+		})
+
+		When("numbres [4,5,6,7,0,1,2]", func() {
+			It("should return min num: 0", func() {
+
+				var nums = []int{4, 5, 6, 7, 0, 1, 2}
+
+				min := FindMinByForceWay(nums)
+
+				Ω(min).Should(Equal(0))
+			})
+		})
+
+		When("numbres [11,13,15,17]", func() {
+			It("should return min num: 11", func() {
+
+				var nums = []int{11, 13, 15, 17}
+
+				min := FindMinByForceWay(nums)
+
+				Ω(min).Should(Equal(11))
 			})
 		})
 	})
