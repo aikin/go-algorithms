@@ -1,4 +1,4 @@
-package head_test
+package heap_test
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestHead(t *testing.T) {
+func TestHeap(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Head Suite")
+	RunSpecs(t, "Heap Suite")
 }
