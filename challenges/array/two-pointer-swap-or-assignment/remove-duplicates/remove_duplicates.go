@@ -12,6 +12,7 @@ Tasking:
 	* 数组内都是数字，包含整数和负数
 	* 长度限制
 	* 顺序不变
+	* 必须是排序后的
 
 复杂度分析：
 	* 时间复杂度：O(n)
@@ -36,4 +37,30 @@ func RemoveDuplicates (nums []int) int {
 	}
 
 	return countUniqueNum
+}
+
+/*
+返回去重后的数组
+*/
+func RemoveDuplicatesThenReturnUniqueNums(nums []int) []int {
+	if (len(nums) <= 1) {
+		return nums
+	}
+
+	countUniqueNum := 1
+
+	for i := 0; i < len(nums) - 1; i++ {
+		if (nums[i] != nums[i + 1]) {
+			if ((i + 1) != countUniqueNum) {
+				nums[countUniqueNum] = nums[i + 1]
+			}
+			countUniqueNum++
+		}
+	}
+
+	uniqueNums := []int {}
+	for i := 0; i < countUniqueNum; i++ {
+		uniqueNums = append(uniqueNums, nums[i])
+	}
+	return uniqueNums;
 }
