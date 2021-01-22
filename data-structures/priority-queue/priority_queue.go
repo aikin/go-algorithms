@@ -1,7 +1,10 @@
 package priority_queue
 
 import (
+	"errors"
+
 	"github.com/aikin/go-algorithms/data-structures/heap"
+	"github.com/aikin/go-algorithms/data-structures/queue"
 )
 
 type Element struct {
@@ -42,4 +45,29 @@ func (pq *PriorityQueue) Peek() (el Element) {
 
 func (pq *PriorityQueue) Poll() (el Element) {
 	return pq.priorities.Poll().(Element)
+}
+
+func (pq *PriorityQueue) ChangePriority(val interface{}, priority int) error {
+	if pq.Len() == 0 {
+		return errors.New("Priority queue is empty")
+	}
+
+	container := queue.NewQueue()
+
+	popped := pq.Poll()
+	for val != popped.Value {
+		if pq.Len() == 0 {
+			return errors.New("Element not found")
+		}
+		container.Enqueue(popped)
+		popped = pq.Poll()
+	}
+
+	popped.Priority = priority
+	pq.priorities.Insert(popped)
+
+	for container.Len() > 0 {
+		pq.priorities.Insert(container.Dequeue().(heap.Item))
+	}
+	return nil
 }
