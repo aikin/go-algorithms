@@ -100,14 +100,13 @@ func (h *Heap) siftDown() {
 		if h.Less(h.Get(i), h.Get(child)) {
 			break
 		}
-
 		h.data[i], h.data[child] = h.data[child], h.data[i]
 	}
 }
 
-func (h *Heap) Less(a, b Item) bool {
+func (h *Heap) Less(parent, child Item) bool {
 	if h.min {
-		return a.Less(b)
+		return parent.Less(child)
 	}
-	return b.Less(a)
+	return child.Less(parent)
 }

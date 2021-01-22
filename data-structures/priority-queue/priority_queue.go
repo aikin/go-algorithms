@@ -10,7 +10,7 @@ type Element struct {
 }
 
 func (x Element) Less(than heap.Item) bool {
-	return x.Priority <= than.(Element).Priority
+	return x.Priority < than.(Element).Priority
 }
 
 func NewElement(value interface{}, priority int) (i *Element) {
@@ -28,6 +28,10 @@ func NewMinHeapPriorityQueue() (pq *PriorityQueue) {
 	return &PriorityQueue{priorities: *heap.NewMinHeap()}
 }
 
+func (pq *PriorityQueue) Len() int {
+	return pq.priorities.Len()
+}
+
 func (pq *PriorityQueue) Add(el Element) {
 	pq.priorities.Insert(heap.Item(el))
 }
@@ -36,6 +40,6 @@ func (pq *PriorityQueue) Peek() (el Element) {
 	return pq.priorities.Peek().(Element)
 }
 
-func (pq *PriorityQueue) Len() int {
-	return pq.priorities.Len()
+func (pq *PriorityQueue) Poll() (el Element) {
+	return pq.priorities.Poll().(Element)
 }
