@@ -57,17 +57,23 @@ func (pq *PriorityQueue) ChangePriority(val interface{}, priority int) error {
 	popped := pq.Poll()
 	for val != popped.Value {
 		if pq.Len() == 0 {
-			return errors.New("Element not found")
+			break
 		}
 		container.Enqueue(popped)
 		popped = pq.Poll()
 	}
+	if val == popped.Value {
+		popped.Priority = priority
+	}
 
-	popped.Priority = priority
+	var err error
+	if pq.Len() == 0 {
+		err = errors.New("Element not found")
+	}
 	pq.priorities.Insert(popped)
-
 	for container.Len() > 0 {
 		pq.priorities.Insert(container.Dequeue().(heap.Item))
 	}
-	return nil
+
+	return err
 }
