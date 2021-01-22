@@ -10,10 +10,10 @@ import (
 var _ = Describe("Heap", func() {
 	Context("When create MaxHeap", func() {
 		It("should create an empty max heap", func() {
-			 heap := NewMaxHeap()
+			heap := NewMaxHeap()
 
-			 Ω(heap.IsEmpty()).Should(Equal(true))
-			 Ω(heap.Len()).Should(Equal(0))
+			Ω(heap.IsEmpty()).Should(Equal(true))
+			Ω(heap.Len()).Should(Equal(0))
 		})
 
 		It("should add items to the heap and heapify it up", func() {
@@ -25,7 +25,7 @@ var _ = Describe("Heap", func() {
 
 			Ω(heap.IsEmpty()).Should(Equal(false))
 			Ω(heap.Len()).Should(Equal(3))
-			Ω(heap.Extract()).Should(Equal(Int(10)))
-	 })
+			Ω(heap.Poll()).Should(Equal(Int(10)))
+		})
 	})
 })

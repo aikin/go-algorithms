@@ -8,11 +8,26 @@ import (
 )
 
 var _ = Describe("PriorityQueue", func() {
-	Context("When create empty hash table", func() {
-		It("should create hash table of certain size", func() {
-			 hashTable := NewHashTable(1000)
+	Context("When create min heap priority queue ", func() {
+		It("should not be nil", func() {
+			priorityQueue := NewMinHeapPriorityQueue()
 
-			 Ω(hashTable.Capacity).Should(Equal(1000))
+			Ω(priorityQueue).Should(Not(BeNil()))
+		})
+
+		It("should insert items to the queue and respect priorities", func() {
+
+			priorityQueue := NewMinHeapPriorityQueue()
+
+			priorityQueue.Add(*NewElement(10, 1))
+			Ω(priorityQueue.Peek().Value).Should(Equal(10))
+
+			priorityQueue.Add(*NewElement(5, 2))
+
+			Ω(priorityQueue.Peek().Value).Should(Equal(10))
+
+			priorityQueue.Add(*NewElement(100, 0))
+			Ω(priorityQueue.Peek().Value).Should(Equal(100))
 		})
 	})
 })

@@ -12,11 +12,11 @@ func (x Int) Less(than Item) bool {
 
 type Heap struct {
 	data []Item
-	min bool
+	min  bool
 }
 
 func New() *Heap {
-	return &Heap {
+	return &Heap{
 		data: make([]Item, 0),
 	}
 }
@@ -24,14 +24,14 @@ func New() *Heap {
 func NewMaxHeap() *Heap {
 	return &Heap{
 		data: make([]Item, 0),
-		min: false,
+		min:  false,
 	}
 }
 
 func NewMinHeap() *Heap {
 	return &Heap{
 		data: make([]Item, 0),
-		min: false,
+		min:  true,
 	}
 }
 
@@ -53,26 +53,33 @@ func (h *Heap) Insert(n Item) {
 	return
 }
 
-func (h *Heap) Extract() (el Item) {
+func (h *Heap) Poll() (el Item) {
 	if h.Len() == 0 {
 		return
 	}
 
 	el = h.data[0]
-	last := h.data[h.Len() - 1]
+	last := h.data[h.Len()-1]
 	if (h.Len()) == 1 {
 		h.data = nil
 		return
 	}
 
-	h.data = append([]Item{ last }, h.data[1 : h.Len() - 1]...)
+	h.data = append([]Item{last}, h.data[1:h.Len()-1]...)
 	h.siftDown()
 
 	return
 }
 
+func (h *Heap) Peek() (el Item) {
+	if h.Len() == 0 {
+		return
+	}
+	return h.data[0]
+}
+
 func (h *Heap) siftUp() {
-	for i, parent := h.Len() - 1, h.Len() - 1; i > 0; i = parent {
+	for i, parent := h.Len()-1, h.Len()-1; i > 0; i = parent {
 		parent = i >> 1
 		if h.Less(h.Get(i), h.Get(parent)) {
 			h.data[parent], h.data[i] = h.data[i], h.data[parent]
