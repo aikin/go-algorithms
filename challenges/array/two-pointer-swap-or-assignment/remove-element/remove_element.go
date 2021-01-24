@@ -17,21 +17,23 @@ Tasking:
 	* 空间复杂度：O(1)
 
 Coding
-	* 中间变量：指针
+	* 中间变量：双指针
 	* 遍历：一遍 for loop
-	* 操作：如果相同，统计相同个数
+	* 操作：swap
 */
 func RemoveElement(nums []int, val int) int {
 	if len(nums) == 0 {
 		return 0
 	}
 
-	counter := 0
-	for i := 0; i < len(nums); i++ {
-		if nums[i] == val {
-			counter++
+	slow := 0
+	for fast := 0; fast < len(nums); fast++ {
+		if nums[fast] == val {
+			continue
 		}
+		nums[slow] = nums[fast]
+		slow++
 	}
 
-	return len(nums) - counter
+	return slow
 }
