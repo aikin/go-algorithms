@@ -1,4 +1,4 @@
-# go-algorithms
+# Golang Data Structures And Algorithms Dojos
 
 
 
