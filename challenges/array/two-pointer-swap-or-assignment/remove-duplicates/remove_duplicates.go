@@ -23,15 +23,15 @@ Coding
 	* 遍历：一遍 for loop
 	* 操作：数组内替换
 */
-func RemoveDuplicates (nums []int) int {
-	if (len(nums) <= 1) {
+func RemoveDuplicates(nums []int) int {
+	if len(nums) <= 1 {
 		return len(nums)
 	}
 
 	countUniqueNum := 1
 
-	for i := 0; i < len(nums) - 1; i++ {
-		if (nums[i] != nums[i + 1]) {
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] != nums[i+1] {
 			countUniqueNum++
 		}
 	}
@@ -43,24 +43,24 @@ func RemoveDuplicates (nums []int) int {
 返回去重后的数组
 */
 func RemoveDuplicatesThenReturnUniqueNums(nums []int) []int {
-	if (len(nums) <= 1) {
+	if len(nums) <= 1 {
 		return nums
 	}
 
 	countUniqueNum := 1
 
-	for i := 0; i < len(nums) - 1; i++ {
-		if (nums[i] != nums[i + 1]) {
-			if ((i + 1) != countUniqueNum) {
-				nums[countUniqueNum] = nums[i + 1]
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] != nums[i+1] {
+			if (i + 1) != countUniqueNum {
+				nums[countUniqueNum] = nums[i+1]
 			}
 			countUniqueNum++
 		}
 	}
 
-	uniqueNums := []int {}
+	uniqueNums := []int{}
 	for i := 0; i < countUniqueNum; i++ {
 		uniqueNums = append(uniqueNums, nums[i])
 	}
-	return uniqueNums;
+	return uniqueNums
 }
