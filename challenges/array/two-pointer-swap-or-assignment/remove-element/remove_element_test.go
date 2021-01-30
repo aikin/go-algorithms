@@ -17,7 +17,7 @@ var _ = Describe("RemoveElement", func() {
 				length := RemoveElement(nums, 3)
 
 				Ω(length).Should(Equal(2))
-				Ω(nums).Should(Equal([]int{2, 2, 2, 3}))
+				Ω(nums[:length]).Should(Equal([]int{2, 2}))
 			})
 		})
 
@@ -29,7 +29,7 @@ var _ = Describe("RemoveElement", func() {
 				length := RemoveElement(nums, 2)
 
 				Ω(length).Should(Equal(5))
-				Ω(nums).Should(Equal([]int{0, 1, 3, 0, 4, 0, 4, 2}))
+				Ω(nums[:length]).Should(Equal([]int{0, 1, 3, 0, 4}))
 			})
 		})
 	})
