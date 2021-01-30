@@ -30,8 +30,13 @@ func RemoveDuplicates(nums []int) int {
 
 	countUniqueNum := 1
 
-	for i := 0; i < len(nums)-1; i++ {
-		if nums[i] != nums[i+1] {
+	for i := 1; i < len(nums); i++ {
+		isDuplicated := nums[i] != nums[i-1]
+		if isDuplicated {
+			hasFoundDuplicated := countUniqueNum != i
+			if hasFoundDuplicated {
+				nums[countUniqueNum] = nums[i]
+			}
 			countUniqueNum++
 		}
 	}
