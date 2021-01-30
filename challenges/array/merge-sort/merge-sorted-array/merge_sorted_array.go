@@ -18,9 +18,9 @@ Tasking:
 	* 空间复杂度：O(m+n)
 
 Coding
-	* 中间变量：双指针
+	* 中间变量：双指针，数组
 	* 遍历：一遍 for loop
-	* 操作：swap
+	* 操作：在没有越界的情况下，根据大小放入新的数组中，如果越界，就依次放入数组中。
 */
 
 func Merge(nums1 []int, m int, nums2 []int, n int) {
