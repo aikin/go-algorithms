@@ -23,14 +23,14 @@ func MaxArea(height []int) (int, error) {
 }
 
 func max(x, y int) int {
-	if (x > y) {
+	if x > y {
 		return x
 	}
 	return y
 }
 
 func min(x, y int) int {
-	if (x > y) {
+	if x > y {
 		return y
 	}
 	return x

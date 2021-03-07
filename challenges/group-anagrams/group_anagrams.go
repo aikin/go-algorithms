@@ -31,7 +31,7 @@ func GroupAnagramsBySort(strs []string) [][]string {
 	for _, curAnagram := range strs {
 		key := sortForKeyOf(curAnagram)
 		value, ok := ans[key]
-		if (ok) {
+		if ok {
 			ans[key] = append(value, curAnagram)
 			continue
 		}

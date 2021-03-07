@@ -18,7 +18,7 @@ return true
  - 空间复杂度：O(1)
 */
 func IsAnagramWithSort(s string, t string) bool {
-	if (len(s) != len(t)) {
+	if len(s) != len(t) {
 		return false
 	}
 
@@ -43,7 +43,7 @@ return true
  - 空间复杂度：O(1)
 */
 func IsAnagram(s string, t string) bool {
-	if (len(s) != len(t)) {
+	if len(s) != len(t) {
 		return false
 	}
 
@@ -54,7 +54,7 @@ func IsAnagram(s string, t string) bool {
 	}
 
 	for _, count := range counter {
-		if (count != 0) {
+		if count != 0 {
 			return false
 		}
 	}
@@ -64,7 +64,7 @@ func IsAnagram(s string, t string) bool {
 
 
 func IsAnagramConcurrency(s string, t string) bool {
-	if (len(s) != len(t)) {
+	if len(s) != len(t) {
 		return false
 	}
 

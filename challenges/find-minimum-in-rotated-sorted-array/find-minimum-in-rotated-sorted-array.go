@@ -10,13 +10,13 @@ THEN: 1
  - 空间复杂度：O(1)
 */
 func FindMinByBruteForceWay(nums []int) int {
-	if (len(nums) == 1) {
+	if len(nums) == 1 {
 		return nums[0]
 	}
 
 	min := nums[0]
 	for i := 1; i < len(nums); i++ {
-		if (nums[i] < min) {
+		if nums[i] < min {
 			min = nums[i]
 		}
 	}
@@ -29,14 +29,14 @@ func FindMinByBruteForceWay(nums []int) int {
  - 空间复杂度：O(1)
 */
 func FindMinByBinarySearch(nums []int) int {
-	if (len(nums) == 1) {
+	if len(nums) == 1 {
 		return nums[0]
 	}
 
 	left := 0
 	right := len(nums) - 1
 
-	if (nums[right] > nums[0]) {
+	if nums[right] > nums[0] {
 		return nums[0]
 	}
 

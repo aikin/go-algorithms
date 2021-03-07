@@ -16,7 +16,7 @@ return false
 func ContainsDuplicate(nums []int) (bool, error) {
 	for i := 0; i < len(nums); i++ {
 		for j := i + 1; j < len(nums); j++ {
-			if (nums[i] == nums [j]) {
+			if nums[i] == nums [j] {
 				return true, nil
 			}
 		}
@@ -37,7 +37,7 @@ return false
 func ContainsDuplicateAfterSort(nums []int) (bool, error) {
  	sort.Ints(nums)
 	for i := 0; i < len(nums) - 1; i++ {
-			if (nums[i] == nums [i + 1]) {
+			if nums[i] == nums [i + 1] {
 				return true, nil
 			}
 	}
