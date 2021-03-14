@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/aikin/go-algorithms/challenges/array/two-pointer-swap-or-assignment/move-zeroes"
+	. "github.com/aikin/go-algorithms/challenges/array/s1-two-pointer-swap-or-assignment/move-zeroes"
 )
 
 var _ = Describe("MoveZeroes", func() {

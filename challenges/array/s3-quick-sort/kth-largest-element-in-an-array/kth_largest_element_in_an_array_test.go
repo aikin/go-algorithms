@@ -3,7 +3,7 @@ package kth_largest_element_in_an_array_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	. "github.com/aikin/go-algorithms/challenges/array/quick-sort/kth-largest-element-in-an-array"
+	. "github.com/aikin/go-algorithms/challenges/array/s3-quick-sort/kth-largest-element-in-an-array"
 )
 
 var _ = Describe("KthLargestElementInAnArray", func() {

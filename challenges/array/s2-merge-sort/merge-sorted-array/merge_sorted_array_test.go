@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/aikin/go-algorithms/challenges/array/merge-sort/merge-sorted-array"
+	. "github.com/aikin/go-algorithms/challenges/array/s2-merge-sort/merge-sorted-array"
 )
 
 var _ = Describe("MergeSortedArray", func() {

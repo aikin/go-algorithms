@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/aikin/go-algorithms/challenges/array/quick-sort/sort-colors"
+	. "github.com/aikin/go-algorithms/challenges/array/s3-quick-sort/sort-colors"
 )
 
 var _ = Describe("SortColors", func() {
