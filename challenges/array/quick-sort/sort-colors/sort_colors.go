@@ -17,8 +17,8 @@ Tasking:
 
 Coding
 	* 中间变量：单指针，替换为。
-	* 遍历：一遍 for loop
-	* 操作：数组内替换
+	* 遍历：two for loop
+	* 操作：当出现 目标颜色时，数组内替换。
 */
 func SortColors(nums []int) {
 	n := len(nums)
@@ -38,4 +38,31 @@ func swapColors(colors []int, target int) (countTarget int) {
 		}
 	}
 	return
+}
+
+/*
+复杂度分析：
+* 时间复杂度：O(n)
+* 空间复杂度：O(1)
+
+Coding
+* 中间变量：双指针，分别用来交换 0 和 1。
+* 遍历：one for loop
+* 操作：当出现 目标颜色时，数组内替换。
+*/
+func SortColorsWithOneLoop(nums []int) {
+	p0, p1 := 0, 0
+	for i, c := range nums {
+		if c == 0 {
+			nums[i], nums[p0] = nums[p0], nums[i]
+			if p0 < p1 {
+				nums[i], nums[p1] = nums[p1], nums[i]
+			}
+			p0++
+			p1++
+		} else if c == 1 {
+			nums[i], nums[p1] = nums[p1], nums[i]
+			p1++
+		}
+	}
 }
