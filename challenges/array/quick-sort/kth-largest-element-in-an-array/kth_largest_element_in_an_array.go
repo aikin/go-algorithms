@@ -27,6 +27,9 @@ Coding
 	* 操作：遍历填充进堆数据， 等于 K 时，取出数据
 */
 func FindKthLargestWithMinHeap(nums []int, k int) int {
+	if k < 1 || k > len(nums) {
+		return -1
+	}
 	heap := NewMinHeap()
 
 	for _, num := range nums {
@@ -36,4 +39,22 @@ func FindKthLargestWithMinHeap(nums []int, k int) int {
 		}
 	}
 	return int(heap.Poll().(Int))
+}
+
+/*
+复杂度分析：
+* 时间复杂度：O(n)
+* 空间复杂度：O(1)
+
+Coding
+* 中间变量：
+- 堆数据
+* 遍历：一遍 for loop
+* 操作：遍历填充进堆数据， 等于 K 时，取出数据
+*/
+func FindKthLargestWithQuickSelect(nums []int, k int) int {
+	if k < 1 || k > len(nums) {
+		return -1
+	}
+	return 1
 }
