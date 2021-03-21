@@ -1,20 +1,20 @@
-package counting_sort_test
+package bucket_sort_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/aikin/go-algorithms/algorithms/sorting/counting-sort"
+	. "github.com/aikin/go-algorithms/algorithms/sorting/bucket-sort"
 )
 
-var _ = Describe("CountingSort", func() {
+var _ = Describe("BucketSort", func() {
 	Context("When sort nums: [8, 3, 4, 5, 6, 7, 1, 9, 2, 0]", func() {
 		It("should sorted nums: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", func() {
 			nums := []int{8, 3, 4, 5, 6, 7, 1, 9, 2, 0}
 
-			Sort(nums, 9)
+			sorted := Sort(nums)
 
-			Ω(nums).Should(Equal([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}))
+			Ω(sorted).Should(Equal([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}))
 		})
 	})
 
@@ -22,9 +22,9 @@ var _ = Describe("CountingSort", func() {
 		It("should sorted nums: [0, 1, 2, 3, 3, 5, 7, 10, 13, 20]", func() {
 			nums := []int{1, 0, 5, 10, 20, 13, 7, 3, 2, 3}
 
-			Sort(nums, 20)
+			sorted := Sort(nums)
 
-			Ω(nums).Should(Equal([]int{0, 1, 2, 3, 3, 5, 7, 10, 13, 20}))
+			Ω(sorted).Should(Equal([]int{0, 1, 2, 3, 3, 5, 7, 10, 13, 20}))
 		})
 	})
 })
