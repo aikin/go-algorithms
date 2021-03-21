@@ -1,10 +1,8 @@
-package container_with_most_water_test
+package container_with_most_water
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
-	. "github.com/aikin/go-algorithms/challenges/container-with-most-water"
 )
 
 var _ = Describe("ContainerWithMostWater", func() {
@@ -14,7 +12,8 @@ var _ = Describe("ContainerWithMostWater", func() {
 
 				var height = []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
 
-				maxArea, err := MaxArea(height)
+				//maxArea, err := MaxAreaByBruteForceWay(height)
+				maxArea, err := MaxAreaByTwoPointerWay(height)
 
 				Ω(err).Should(BeNil())
 				Ω(maxArea).Should(Equal(49))

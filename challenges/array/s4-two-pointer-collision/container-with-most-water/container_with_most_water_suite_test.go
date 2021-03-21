@@ -1,4 +1,4 @@
-package container_with_most_water_test
+package container_with_most_water
 
 import (
 	"testing"
